@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-
+# for update task
+from typing import Optional
 class TaskCreate(BaseModel):
     title: str
 
@@ -10,3 +11,7 @@ class TaskResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class TaskUpdate(BaseModel):
+    title:Optional[str] = None
+    completed:Optional[bool] = None

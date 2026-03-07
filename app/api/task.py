@@ -5,7 +5,7 @@ from app.model.task import Task
 from app.schema.task import TaskCreate
 
 # get_all_tasks
-from app.schema.task import TaskResponse
+from app.schema.task import TaskResponse,TaskUpdate
 from typing import List
 
 #  api router : used to group related routes
@@ -74,3 +74,25 @@ def delete_task(task_id:int,db:Session=Depends(get_db)):
     db.commit()
 
     return {"message":"Task deleted successfully"}
+
+# uodate the task
+@router.put("/tasks/{task_id}", response_model=TaskResponse)
+def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_db)):
+
+    # Find task
+    db_task = db.query(Task).filter(Task.id == task_id).first()
+
+    if not db_task:
+        raise HTTPException(status_code=404, detail="Task not found")
+
+    # Update fields if provided
+    if task.title is not None:
+        db_task.title = task.title
+
+    if task.completed is not None:
+        db_task.completed = task.completed
+
+    db.commit()
+    db.refresh(db_task)
+
+    return db_task
