@@ -6,3 +6,5 @@ DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/textauth"
 engine = create_engine(DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
