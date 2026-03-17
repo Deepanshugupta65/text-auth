@@ -48,3 +48,37 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         "user_id": new_user.id
     }
 
+
+from app.schema.user import UserLogin
+from app.core.security import verify_password, create_access_token
+
+@router.post("/login")
+def login_user(user: UserLogin, db: Session = Depends(get_db)):
+
+    # 1. Find user by email
+    db_user = db.query(User).filter(User.email == user.email).first()
+
+    # 2. If user not found
+    if not db_user:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+
+    # 3. Verify password
+    if not verify_password(user.password, db_user.password):
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+
+    # 4. Create JWT token
+    token_data = {
+        "user_id": db_user.id,
+        "role": db_user.role
+    }
+
+    access_token = create_access_token(token_data)
+
+    # 5. Return token
+    return {
+        "access_token": access_token,
+        "token_type": "bearer"
+    }
+ 
+    
+
