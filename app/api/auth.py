@@ -17,35 +17,6 @@ def get_db():
         db.close()
 
 
-# @router.post("/register")
-# def register_user(user: UserCreate, db: Session = Depends(get_db)):
-
-#     # check if email already exists
-#     existing_user = db.query(User).filter(User.email == user.email).first()
-
-#     if existing_user:
-#         raise HTTPException(status_code=400, detail="Email already registered")
-
-#     # hash password
-#     hashed_password = hash_password(user.password)
-
-#     # create user object
-#     new_user = User(
-#         email=user.email,
-#         password=hashed_password,
-#         role="user"
-#     )
-
-#     # save to db
-#     db.add(new_user)
-#     db.commit()
-#     db.refresh(new_user)
-
-#     return {
-#         "message": "User registered successfully",
-#         "user_id": new_user.id
-#     }
-
 @router.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
 
@@ -76,3 +47,4 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         "message": "User registered successfully",
         "user_id": new_user.id
     }
+
