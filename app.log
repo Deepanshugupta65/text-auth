@@ -1,0 +1,8 @@
+2026-03-20 12:13:11,659 - INFO - Request: POST http://127.0.0.1:8000/auth/login
+2026-03-20 12:13:12,291 - INFO - Response Status: 200
+2026-03-20 12:13:38,209 - INFO - Request: GET http://127.0.0.1:8000/tasks
+2026-03-20 12:13:38,209 - INFO - Response Status: 307
+2026-03-20 12:13:38,214 - INFO - Request: GET http://127.0.0.1:8000/tasks/
+2026-03-20 12:13:38,339 - INFO - Response Status: 200
+2026-03-20 23:08:52,144 - INFO - Request: POST http://127.0.0.1:8000/auth/login
+2026-03-20 23:08:52,716 - INFO - Response Status: 200

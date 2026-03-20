@@ -13,7 +13,8 @@ from app.core.security import get_current_user
 
 # loggin and monitoring
 from app.core.logger import logger
-
+# pagination filtering and search
+from fastapi import Query
 #  api router : used to group related routes
 # depends fastapi depedncy injection system
 # session ; sqlachemy session type
@@ -64,15 +65,51 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db),current_user = D
 
 # get all task
 # if response_model removed it convert swlachemy object to json .. return all field from the model, no validation of output ..no constrol over exposed data 
-@router.get("/", response_model=List[TaskResponse])
-def get_all_tasks(db: Session = Depends(get_db),current_user = Depends(get_current_user)):
 
+# @router.get("/", response_model=List[TaskResponse])
+# def get_all_tasks(db: Session = Depends(get_db),current_user = Depends(get_current_user)):
+@router.get("/")
+def get_all_tasks(
+    page: int = Query(1, ge=1),
+    limit: int = Query(10, le=100),
+    search: str = Query(None),
+    completed: bool = Query(None),
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+    # if current_user.role == "admin":
+    #     tasks = db.query(Task).all()
+    # else:
+    #     tasks = db.query(Task).filter(Task.owner_id == current_user.id).all()    
+    # return tasks
+
+    # Role-based access
     if current_user.role == "admin":
-        tasks = db.query(Task).all()
+        query = db.query(Task)
     else:
-        tasks = db.query(Task).filter(Task.owner_id == current_user.id).all()    
-    return tasks
+        query = db.query(Task).filter(Task.owner_id == current_user.id)
 
+    # Search
+    if search:
+        query = query.filter(Task.title.ilike(f"%{search}%"))
+
+    # Filter
+    if completed is not None:
+        query = query.filter(Task.completed == completed)
+
+    # Total count
+    total = query.count()
+
+    # Pagination
+    skip = (page - 1) * limit
+    tasks = query.offset(skip).limit(limit).all()
+
+    return {
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "data": tasks
+    }
 
 # delete task
 

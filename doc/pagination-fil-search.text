@@ -1,0 +1,42 @@
+from fastapi import query
+
+// page -> pagination , limit -> records per page
+// search -> search by title completed filter
+@router.get("/")
+def get_all_tasks(
+    page: int = Query(1, ge=1),
+    limit: int = Query(10, le=100),
+    search: str = Query(None),
+    completed: bool = Query(None),
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user)
+):
+
+
+    # Role-based access
+    if current_user.role == "admin":
+        query = db.query(Task)
+    else:
+        query = db.query(Task).filter(Task.owner_id == current_user.id)
+
+    # Search
+    if search:
+        query = query.filter(Task.title.ilike(f"%{search}%"))
+
+    # Filter
+    if completed is not None:
+        query = query.filter(Task.completed == completed)
+
+    # Total count
+    total = query.count()
+
+    # Pagination
+    skip = (page - 1) * limit
+    tasks = query.offset(skip).limit(limit).all()
+
+    return {
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "data": tasks
+    }
