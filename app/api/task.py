@@ -11,6 +11,9 @@ from typing import List
 # get_current_user protected routes
 from app.core.security import get_current_user
 
+# loggin and monitoring
+from app.core.logger import logger
+
 #  api router : used to group related routes
 # depends fastapi depedncy injection system
 # session ; sqlachemy session type
@@ -47,6 +50,8 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db),current_user = D
         
         # 4. Refresh to get the DB-generated ID
         db.refresh(new_task)
+
+        logger.info(f"User{current_user.id} created task {new_task.id}")
         
         # 5. Return the result
         return new_task
@@ -54,6 +59,7 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db),current_user = D
     except Exception as e:
         # Rollback in case of database errors
         db.rollback()
+        logger.error(f"Task creation failed: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Task creation failed: {str(e)}")
 
 # get all task
