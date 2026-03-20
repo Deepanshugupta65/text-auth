@@ -16,6 +16,7 @@ def get_db():
     finally:
         db.close()
 
+# register api
 
 @router.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
@@ -48,6 +49,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         "user_id": new_user.id
     }
 
+# Login api 
 
 from app.schema.user import UserLogin
 from app.core.security import verify_password, create_access_token
@@ -77,8 +79,16 @@ def login_user(user: UserLogin, db: Session = Depends(get_db)):
     # 5. Return token
     return {
         "access_token": access_token,
-        "token_type": "bearer"
+        "token_type": "bearer",
+        "user":{
+            "id":db_user.id,
+            "email":db_user.email,
+            "role":db_user.role
+        }
     }
  
-    
+#  logout api
 
+@router.post("/logout")
+def logout():
+    return {"message":"Logged out successfully"}
