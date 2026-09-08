@@ -1,0 +1,59 @@
+// it helps in debuggin , tracking errors, monitoring apps in production
+
+import logging
+
+// global configutation for logging
+
+logging.basicConfig(
+
+    // debug -detailed info , info -normal app flow  , warning -something suspicious, error -something failed , critical -system crash
+
+    level=logging.INFO, 
+    // how logs will look 
+    -- timestamp -- log level -- ur messsage  
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+// create a logger object for your file 
+// name -> current file  like auth
+logger = logging.getLogger(__name__)
+
+-----------------------------------------
+this is middleware , it runs for every api req automatically
+
+client -> middleware -> api -> middlware -> response
+
+// fastapi create app
+// request -> gives info about incoming request
+
+from fastapi import FastAPI, Request
+from app.core.logger import logger
+
+app = FastAPI()
+
+// tells fastapi -> runs this function for every http request
+@app.middleware("http")
+
+//request -> incoming request data
+// call_next -> function to pass request to actual api
+async def log_requests(request: Request, call_next):
+    // https method , url
+    logger.info(f"Request: {request.method} {request.url}")
+
+    // your route /tasks, /login wait for response
+    response = await call_next(request)
+
+    // logs response status
+    logger.info(f"Response Status: {response.status_code}")
+
+    return response
+
+
+
+output 
+
+What happens now
+Every API call logs:
+
+INFO: Request: GET /tasks
+INFO: Response Status: 200

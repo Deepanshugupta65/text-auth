@@ -1,0 +1,154 @@
+TEST-AUTH.python
+
+Register
+Login
+Wrong password
+Duplicate email
+JWT authentication
+Unauthorized request
+
+-------------------------------
+test_task.py
+
+Create task
+Get tasks
+Get only current user's tasks
+Delete task
+Delete someone else's task
+Update task
+Invalid task ID
+
+---------------------------------
+conftest.py
+
+
+Test database
+FastAPI TestClient
+Test user
+Authentication token
+Database session
+
+
+----------------------------------------------------
+FastAPI app = Restaurant
+Client       = Customer
+API          = Waiter
+Database     = Kitchen/Store room
+Test         = Inspector  
+
+why using test 
+let me check wheather my application is doing what i told it to do
+
+step1:
+pip install pytest httpx
+pytest =  teacher who checks your answers
+https = Customer who can talk to your API
+
+theory part: 
+then i created a tests folder after this test_main.py
+archiectrue of this :
+-------------------
+pytest
+  ↓
+runs test_home()
+  ↓
+calls your FastAPI /
+  ↓
+gets the correct response
+  ↓
+✅ PASS
+
+quesyion : why do we need testing
+ans - imagine your appplication has 50 apis . you change one thing in your login cide now we world have to manullay check register , login, task and all the feature with test it can test all the test run automatically 
+
+concept :
+real database  - textauth application - imp data
+test database - textauth_test - playground
+
+Tests can freeely create and delete things in textauth_test without touching your real database
+
+---------------------------------------------
+step 2:
+my real application use textauth 
+for textauth_test we create textauth_test databae in pgadmin
+ we will tell pytest when i am testing use textauth_test 
+
+ -------------------------
+
+ step 3:
+ we created conftest.py
+ like in  session.py  -> textauth
+           conftest -> textauth_test
+Normal app :
+    FastAPI  -> textauth
+During test :
+     FastAPI  -> textauth_test
+
+--------------------------------------------        
+
+Step 4 :
+
+make the table for test database 
+for the user and tasks in textauth_test database
+
+then fastapi the to test database 
+write this on confest.test.py 
+
+def override_get_db():
+    db = TestingSessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+ ===== 
+ Normally:
+
+API → get_db() → textauth
+
+
+During pytest:
+
+API → get_db() → 🚧 "Wait!"
+                 ↓
+          override_get_db()
+                 ↓
+            textauth_test
+
+step 5:
+
+tests/ test_database.py
+--------------------------------------------
+step 6:
+
+test_auth.py  
+this is auth flow 
+/register
+    ↓
+create user
+    ↓
+hash password
+    ↓
+save in DB
+
+/login
+    ↓
+find user
+    ↓
+check password
+    ↓
+create JWT
+    ↓
+return token
+
+/logout
+    ↓
+return message
+
+for learing testing them in this order :
+1. register
+2. register duplicate email
+3. login with correct pwd 
+4 . login with wrong password
+5. logout
+6. Later : jwt protected routes

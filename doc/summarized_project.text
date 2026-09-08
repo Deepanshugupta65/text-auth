@@ -1,0 +1,58 @@
+ Installation of library :
+ Fastapi → used to build api  , uvicorn → used to run fastapi , sqlachemy  →  orm , it connect python class to database table  , Psycopy2-binary → allow python to communicate with postgresql
+So before building api i have a python classes and there is db , all the models are created in db by using the declarative base , 
+SessonLocal : it is like temporoay conversation with db 
+Pip i library 
+
+So after that , we register a python class Task as a db , id , title , completed after run the main file it created a table with name tasks we can see the table column in the db 
+
+There is one more things i.e. schemas when the task is created it will store in string type 
+
+After that we created a api of task so for this i import all the required library like session, task, taskcreate , and make a router for the tasks prefix and session for get_db creation and task: title : my task and save the task in db 
+
+Get all tasks
+So if the admin or user need complete task , admin can get all the task of users you can only their own task .. you can query like db.query(task).all and store in task then return it 
+
+Delete task from the DB
+So receive the task_id from Url add get_db and then find the task by db.query(Task).filter(Task.id==task_id).first() , db.delt(task) db.commit 
+
+Authentication and Authorization
+
+Pip install python-jose passlib[bcrypt] python-multipart
+Firstly we created a User model where the tablename is users and there column is  id, email, password and role by default it is user and import user in main file now you can see the table column in db 
+
+Connect task with user
+So in the task model we added a new column owner_id = Column with foreign key users.id  : owner_id store the id of the user who own the task 
+
+For adding new column i use alembic for verson control database migration where you easily add one more column in a table it will easily migrate with sqlaclcmey 
+
+Now the auth register is started first i import all the required libraries APIrouter , depends , Session , User , UserCreate and hash_password and then write prefix like /auth 
+
+And added the get_db for sessions 
+
+User_model -> Schema -> Security hashing -> API 
+Firstly i need to find existing user , then hashed the password and then created new_user  and commit in db
+
+After that import in main file auth.router 
+
+Login api:
+Check if user exist -> verify pwd -> generate jwt token -> refresh token
+So basically we import all the things like UserLogin Schema , verify_password , create_access_token 
+
+Login_user : find the user by email and verify password  , if it is  not found  then invalid email or password 
+
+Then created a token_Data from db_user.id and their role : 
+And created a access_token and then return acess_token , id email role of user 
+
+
+Get_Current_User : 
+For getting get_current_user the step i followd get token from header , then extract actual token string then verify token adn extract data inside token (id , role , email) but we need id then find user from the db by using id then return the user …. So in create_task api you can cadd current_user.id with new_task so that only logged in user can create there task and you can add accordingly in get_All_task ,delete task
+
+Logging and Monitoring 
+It help in dubgging , tracking error , monitoring apps in production  basically this is middleware , it wun for every api req automatically 
+Client → middleware → api → middleware → response 
+
+
+Pagination + filtering + Searching: so in the pagination it handle large amount of data , and filtering it shos specific just like task is completed ot not and searching it is use full for liek finid quickly 
+
+

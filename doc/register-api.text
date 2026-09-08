@@ -1,0 +1,127 @@
+here i am writing how to write api from scratch while writing code after writing
+model -> schemas -> 
+
+// see the vaue from postman
+from fastapi import APIRouter
+from app.schema.user import UserCreate
+
+router = APIRouter(prefix="/auth", tags=["Auth"])
+
+
+@router.post("/register")
+def register_user(user: UserCreate):
+
+    print("Full request object:", user)
+    print("Email value:", user.email)
+    print("Password value:", user.password)
+
+    return {"message": "Request received"}
+
+ -- after this you can  see the email and pwd in terminal after sending req from postman   
+
+
+ // now we are adding db 
+from fastapi import Depends
+from sqlalchemy.orm import Session
+from app.db.session import SessionLocal
+
+ def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+
+@router.post("/register")
+def register_user(user: UserCreate, db: Session = Depends(get_db)):
+
+    print("Email:", user.email)
+    print("DB session:", db)
+
+    return {"message": "DB connected"}  
+
+
+
+ // check existing user
+from app.model.user import User
+
+existing_user = db.query(User).filter(User.email == user.email).first()
+
+print("Existing user query result:", existing_user)
+
+   if existing_user:
+        return {"message": "User already exists"}
+
+    return {"message": "User not found in DB"}
+
+ // now add hashing with passlib or added hashed_password
+ from app.core.security import hash_password 
+ hashed_password = hash_password(user.password)
+
+print("Original password:", user.password)
+print("Hashed password:", hashed_password)
+
+
+// create user object
+
+new_user = User(
+    email=user.email,
+    password=hashed_password,
+    role="user"
+)
+print("User object created:", new_user)
+print("User email:", new_user.email)
+print("User role:", new_user.role)
+
+
+// save to db 
+
+db.add(new_user)
+print("User added to session")
+
+db.commit()
+print("Database committed")
+
+db.refresh(new_user)
+print("User ID after save:", new_user.id)
+
+
+
+---------// complete api register------------ 
+@router.post("/register")
+def register_user(user: UserCreate, db: Session = Depends(get_db)):
+
+    print("Request received:", user.email)
+
+    existing_user = db.query(User).filter(User.email == user.email).first()
+    print("Existing user:", existing_user)
+
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+
+    hashed_password = hash_password(user.password)
+    print("Hashed password:", hashed_password)
+
+    new_user = User(
+        email=user.email,
+        password=hashed_password,
+        role="user"
+    )
+
+    print("User object:", new_user)
+
+    db.add(new_user)
+    print("User added")
+
+    db.commit()
+    print("Committed")
+
+    db.refresh(new_user)
+    print("User ID:", new_user.id)
+
+    return {
+        "message": "User registered successfully",
+        "user_id": new_user.id
+    }
