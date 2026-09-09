@@ -1,0 +1,30 @@
+                 BLOG PLATFORM
+                       │
+        ┌──────────────┼──────────────┐
+        ↓              ↓              ↓
+     Backend         Testing        Database
+     FastAPI         Pytest         PostgreSQL
+        │
+        ↓
+      Docker
+        │
+        ↓
+    CI/CD Pipeline
+    GitHub Actions
+        │
+        ↓
+      Azure
+        │
+   ┌────┴─────┐
+   ↓          ↓
+ App/API   PostgreSQL
+        │
+        ↓
+     Redis
+        │
+        ↓
+    GenAI Layer
+        │
+   ┌────┼────────┐
+   ↓    ↓        ↓
+ RAG  AI Search  AI Assistant

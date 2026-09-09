@@ -6,6 +6,7 @@
 2026-03-20 12:13:38,339 - INFO - Response Status: 200
 2026-03-20 23:08:52,144 - INFO - Request: POST http://127.0.0.1:8000/auth/login
 2026-03-20 23:08:52,716 - INFO - Response Status: 200
+<<<<<<< HEAD
 2026-03-20 23:57:37,234 - INFO - Request: GET http://127.0.0.1:8000/tasks
 2026-03-20 23:57:37,236 - INFO - Response Status: 307
 2026-03-20 23:57:37,243 - INFO - Request: GET http://127.0.0.1:8000/tasks/
@@ -149,3 +150,8 @@
 2026-09-08 22:43:59,627 - INFO - Request: POST http://testserver/auth/register
 2026-09-08 22:43:59,681 - INFO - Response Status: 400
 2026-09-08 22:43:59,684 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+=======
+>>>>>>> 6f28f09ebdc70671b9b35c4699709035bf2cd35a
+2026-09-08 23:38:43,304 - INFO - Request: POST http://testserver/auth/register
+2026-09-08 23:38:43,677 - INFO - Response Status: 200
+2026-09-08 23:38:43,680 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"

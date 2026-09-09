@@ -7,6 +7,7 @@ from app.schema.user import UserCreate
 from app.core.security import hash_password
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
+
 from app.db.session import get_db
 
 # def get_db():
@@ -91,4 +92,4 @@ def login_user(user: UserLogin, db: Session = Depends(get_db)):
 
 @router.post("/logout")
 def logout():
-    return {"message":"Logged out succ"}
+    return {"message":"Logged out successfully"}

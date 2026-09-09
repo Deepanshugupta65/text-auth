@@ -24,9 +24,7 @@ from fastapi import Query
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
 # all routes inside this file start with /tasks
 # tags=["Tasks"]
-
 from app.db.session import get_db
-
 # def get_db():
 #     db = SessionLocal()
 #     # sessionlocal create db session

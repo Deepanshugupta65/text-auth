@@ -145,10 +145,50 @@ return token
     ↓
 return message
 
+
+-------------step 6 :
+register and duplicate email
+test_register_user()
+        ↓
+create user
+        ↓
+✅ 200
+
+
+test_duplicate_email()
+        ↓
+create user first
+        ↓
+try same email again
+        ↓
+✅ 400
+
+
+
+
 for learing testing them in this order :
-1. register
-2. register duplicate email
-3. login with correct pwd 
-4 . login with wrong password
-5. logout
-6. Later : jwt protected routes
+AUTH
+│
+├── 1. Register ✅
+├── 2. Duplicate email
+├── 3. Login success
+├── 4. Login wrong password
+├── 5. JWT protected route
+├── 6. Missing/invalid JWT
+├── 7. Logout
+│
+TASK
+│
+├── 8. Create task
+├── 9. Get tasks
+├── 10. Pagination
+├── 11. Search
+├── 12. Filtering
+├── 13. Update task
+├── 14. Delete task
+│
+AUTHORIZATION
+│
+├── 15. User can access own task
+├── 16. User cannot access another user's task
+└── 17. Admin can access/manage all tasks

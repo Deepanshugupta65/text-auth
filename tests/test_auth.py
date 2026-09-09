@@ -17,3 +17,32 @@ def test_register_user():
 
     assert data["message"] == "User registered successfully"
     assert "user_id" in data
+
+    #  check duplicate email
+    def test_duplicate_email():
+        # first create the user
+        client.post(
+            "/auth/register",
+            json={
+                "email":"duplicate@example.com",
+                "password":"Test1234"
+            }
+        )
+        # now try to create the same user agian
+        response = client.post(
+            "/auth/register",
+            json={
+                "email":"duplicate@example.com",
+                "password":"Test1234"
+            }
+        )
+        assert response.status_code ==400
+        data = response.json()
+        assert data["detail"] =="Email already registered"
+
+
+        # login test 
+        def test_login_user():
+            client.get(
+                "/auth/login"
+            )
