@@ -146,7 +146,7 @@ return token
 return message
 
 
--------------step 6 :
+-------------step 7 :
 register and duplicate email
 test_register_user()
         ↓
@@ -164,7 +164,50 @@ try same email again
 ✅ 400
 
 
+--- login with correct password 
 
+Create user
+   ↓
+Login using same email/password
+   ↓
+Expect 200
+   ↓
+Check access_token
+   ↓
+Check user email/role
+
+--------------------------------------
+Problem fixed 
+what problem we are solving ?
+Test 1 → creates test@example.com
+Test 2 → sees that user
+Test 3 → also sees that user
+
+we don't want that
+We want every test to start with a clean playground:
+
+Test 1 → clean DB → test → finished
+Test 2 → clean DB → test → finished
+Test 3 → clean DB → test → finished
+
+in conftest.py it is added 
+import pytest
+
+
+@pytest.fixture
+def db():
+    Base.metadata.drop_all(bind=test_engine)
+    Base.metadata.create_all(bind=test_engine)
+
+    db = TestingSessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+        
 
 for learing testing them in this order :
 AUTH
@@ -192,3 +235,36 @@ AUTHORIZATION
 ├── 15. User can access own task
 ├── 16. User cannot access another user's task
 └── 17. Admin can access/manage all tasks
+
+
+
+how the auth_test send the fastapi app file like the mmain route fkow 
+
+test_auth.py
+     │
+     │ client.post("/auth/login")
+     ↓
+TestClient
+     │
+     ↓
+main.py
+     │
+     ↓
+app.include_router(auth.router)
+     │
+     ↓
+auth.py
+     │
+     ↓
+@login endpoint
+     │
+     ├── Find user
+     ├── Verify password
+     ├── Create JWT
+     └── Return response
+     │
+     ↓
+test_auth.py
+     │
+     ↓
+assert response.status_code == 200

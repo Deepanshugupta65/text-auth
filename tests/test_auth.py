@@ -6,7 +6,7 @@ def test_register_user():
     response = client.post(
         "/auth/register",
         json={
-            "email": "test@example.com",
+            "email": "test1@example.com",
             "password": "Test1234"
         }
     )
@@ -41,8 +41,19 @@ def test_register_user():
         assert data["detail"] =="Email already registered"
 
 
-        # login test 
+        # login test with correct password
         def test_login_user():
-            client.get(
-                "/auth/login"
+            response = client.post(
+                "/auth/login",
+                json={
+            "email": "test@example.com",
+            "password": "Test1234"                    
+                }
             )
+            assert response.status_code == 200
+            
+            data = response.json()
+            assert "access_token" in data
+            assert data["token_type"] == "bearer"
+            assert data["user"]["email"] =="test@example.com"
+            assert data["user"]["role"] =="user"

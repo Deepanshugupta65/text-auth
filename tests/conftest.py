@@ -5,7 +5,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT_DIR))
 
 
-
+import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -31,6 +31,7 @@ TestingSessionLocal = sessionmaker(
 #  by this all my python models and create their tables inside textauth_test
 Base.metadata.create_all(bind=test_engine)
 
+
 def override_get_db():
     db = TestingSessionLocal()
     try:
@@ -42,3 +43,15 @@ def override_get_db():
 app.dependency_overrides[get_db] = override_get_db
 
 client = TestClient(app)
+
+@pytest.fixture
+def db():
+    Base.metadata.drop_all(bind=test_engine)
+    Base.metadata.create_all(bind=test_engine)
+
+    db = TestingSessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()

@@ -155,3 +155,30 @@
 2026-09-08 23:38:43,304 - INFO - Request: POST http://testserver/auth/register
 2026-09-08 23:38:43,677 - INFO - Response Status: 200
 2026-09-08 23:38:43,680 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 09:48:16,094 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 09:48:16,134 - INFO - Response Status: 400
+2026-09-09 09:48:16,136 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 09:48:31,751 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 09:48:31,782 - INFO - Response Status: 400
+2026-09-09 09:48:31,785 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 09:48:31,997 - INFO - Request: GET http://testserver/
+2026-09-09 09:48:31,999 - INFO - Response Status: 200
+2026-09-09 09:48:32,002 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-09 09:49:44,786 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 09:49:45,135 - INFO - Response Status: 200
+2026-09-09 09:49:45,138 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 09:49:45,147 - INFO - Request: GET http://testserver/
+2026-09-09 09:49:45,150 - INFO - Response Status: 200
+2026-09-09 09:49:45,152 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-09 09:49:55,098 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 09:49:55,129 - INFO - Response Status: 400
+2026-09-09 09:49:55,131 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 09:49:55,330 - INFO - Request: GET http://testserver/
+2026-09-09 09:49:55,332 - INFO - Response Status: 200
+2026-09-09 09:49:55,333 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-09 10:54:50,646 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 10:54:50,676 - INFO - Response Status: 400
+2026-09-09 10:54:50,679 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 10:54:50,994 - INFO - Request: GET http://testserver/
+2026-09-09 10:54:50,997 - INFO - Response Status: 200
+2026-09-09 10:54:50,999 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
