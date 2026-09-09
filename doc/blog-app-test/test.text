@@ -177,7 +177,8 @@ Check access_token
 Check user email/role
  ------- login with wrong password
  -------- jwt protested routes
-
+--------- No JWT → user cannot create a task. ❌
+---------  test an invalid JWT token. 🔐
 --------------------------------------
 Problem fixed 
 what problem we are solving ?

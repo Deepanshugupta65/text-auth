@@ -264,3 +264,145 @@
 2026-09-09 15:52:23,337 - INFO - User1 created task 1
 2026-09-09 15:52:23,338 - INFO - Response Status: 201
 2026-09-09 15:52:23,341 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-09 15:53:16,353 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:16,808 - INFO - Response Status: 200
+2026-09-09 15:53:16,811 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:53:16,867 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:17,193 - INFO - Response Status: 200
+2026-09-09 15:53:17,196 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:53:17,199 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:17,204 - INFO - Response Status: 400
+2026-09-09 15:53:17,206 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 15:53:17,258 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:17,556 - INFO - Response Status: 200
+2026-09-09 15:53:17,558 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:53:17,561 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:53:17,879 - INFO - Response Status: 200
+2026-09-09 15:53:17,882 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:53:17,945 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:18,247 - INFO - Response Status: 200
+2026-09-09 15:53:18,249 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:53:18,252 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:53:18,541 - INFO - Response Status: 400
+2026-09-09 15:53:18,543 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-09 15:53:18,598 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:53:18,911 - INFO - Response Status: 200
+2026-09-09 15:53:18,914 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:53:18,916 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:53:19,213 - INFO - Response Status: 200
+2026-09-09 15:53:19,215 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:53:19,218 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:53:19,244 - INFO - User1 created task 1
+2026-09-09 15:53:19,245 - INFO - Response Status: 201
+2026-09-09 15:53:19,248 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-09 15:53:19,256 - INFO - Request: GET http://testserver/
+2026-09-09 15:53:19,259 - INFO - Response Status: 200
+2026-09-09 15:53:19,260 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-09 15:55:49,089 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:49,466 - INFO - Response Status: 200
+2026-09-09 15:55:49,469 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:55:49,525 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:49,836 - INFO - Response Status: 200
+2026-09-09 15:55:49,839 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:55:49,842 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:49,847 - INFO - Response Status: 400
+2026-09-09 15:55:49,849 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 15:55:49,910 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:50,232 - INFO - Response Status: 200
+2026-09-09 15:55:50,236 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:55:50,240 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:55:50,586 - INFO - Response Status: 200
+2026-09-09 15:55:50,589 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:55:50,650 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:50,970 - INFO - Response Status: 200
+2026-09-09 15:55:50,973 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:55:50,976 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:55:51,270 - INFO - Response Status: 400
+2026-09-09 15:55:51,272 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-09 15:55:51,331 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:55:51,649 - INFO - Response Status: 200
+2026-09-09 15:55:51,651 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:55:51,654 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:55:51,965 - INFO - Response Status: 200
+2026-09-09 15:55:51,967 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:55:51,971 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:55:51,993 - INFO - User1 created task 1
+2026-09-09 15:55:51,994 - INFO - Response Status: 201
+2026-09-09 15:55:51,998 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-09 15:55:52,054 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:55:52,058 - INFO - Response Status: 401
+2026-09-09 15:55:52,059 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-09 15:57:36,326 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:36,676 - INFO - Response Status: 200
+2026-09-09 15:57:36,679 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:57:36,752 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:37,080 - INFO - Response Status: 200
+2026-09-09 15:57:37,083 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:57:37,085 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:37,090 - INFO - Response Status: 400
+2026-09-09 15:57:37,092 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 15:57:37,151 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:37,485 - INFO - Response Status: 200
+2026-09-09 15:57:37,487 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:57:37,490 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:57:37,838 - INFO - Response Status: 200
+2026-09-09 15:57:37,842 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:57:38,003 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:38,336 - INFO - Response Status: 200
+2026-09-09 15:57:38,338 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:57:38,342 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:57:38,690 - INFO - Response Status: 400
+2026-09-09 15:57:38,693 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-09 15:57:38,756 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:57:39,105 - INFO - Response Status: 200
+2026-09-09 15:57:39,108 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:57:39,111 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:57:39,420 - INFO - Response Status: 200
+2026-09-09 15:57:39,423 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:57:39,427 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:57:39,452 - INFO - User1 created task 1
+2026-09-09 15:57:39,453 - INFO - Response Status: 201
+2026-09-09 15:57:39,459 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-09 15:57:39,530 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:57:39,533 - INFO - Response Status: 401
+2026-09-09 15:57:39,535 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-09 15:57:39,605 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:57:39,610 - INFO - Response Status: 401
+2026-09-09 15:57:39,612 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-09 15:58:22,535 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:22,896 - INFO - Response Status: 200
+2026-09-09 15:58:22,900 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:58:22,976 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:23,295 - INFO - Response Status: 200
+2026-09-09 15:58:23,297 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:58:23,301 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:23,306 - INFO - Response Status: 400
+2026-09-09 15:58:23,309 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-09 15:58:23,386 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:23,703 - INFO - Response Status: 200
+2026-09-09 15:58:23,705 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:58:23,708 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:58:24,007 - INFO - Response Status: 200
+2026-09-09 15:58:24,010 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:58:24,065 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:24,374 - INFO - Response Status: 200
+2026-09-09 15:58:24,377 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:58:24,380 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:58:24,696 - INFO - Response Status: 400
+2026-09-09 15:58:24,698 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-09 15:58:24,770 - INFO - Request: POST http://testserver/auth/register
+2026-09-09 15:58:25,068 - INFO - Response Status: 200
+2026-09-09 15:58:25,070 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-09 15:58:25,073 - INFO - Request: POST http://testserver/auth/login
+2026-09-09 15:58:25,366 - INFO - Response Status: 200
+2026-09-09 15:58:25,368 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-09 15:58:25,371 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:58:25,393 - INFO - User1 created task 1
+2026-09-09 15:58:25,394 - INFO - Response Status: 201
+2026-09-09 15:58:25,398 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-09 15:58:25,462 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:58:25,466 - INFO - Response Status: 401
+2026-09-09 15:58:25,468 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-09 15:58:25,535 - INFO - Request: POST http://testserver/tasks/
+2026-09-09 15:58:25,539 - INFO - Response Status: 401
+2026-09-09 15:58:25,541 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"

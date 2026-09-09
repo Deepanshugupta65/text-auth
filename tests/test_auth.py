@@ -145,3 +145,28 @@ def test_jwt_protected_task(db):
     data = response.json()
 
     assert data["title"] == "Learn JWT"
+
+# No JWT → user cannot create a task. 
+def test_create_task_without_token(db):
+
+    response = client.post(
+        "/tasks/",
+        json={
+            "title": "Should not be created"
+        }
+    )
+
+    assert response.status_code in [401, 403]
+def test_create_task_with_invalid_token(db):
+
+    response = client.post(
+        "/tasks/",
+        json={
+            "title": "Should not be created"
+        },
+        headers={
+            "Authorization": "Bearer this_is_not_a_real_token"
+        }
+    )
+
+    assert response.status_code in [401, 403]    
