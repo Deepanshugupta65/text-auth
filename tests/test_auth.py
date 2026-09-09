@@ -1,7 +1,7 @@
 from tests.conftest import client
 
 
-def test_register_user():
+def test_register_user(db):
 
     response = client.post(
         "/auth/register",
@@ -19,7 +19,7 @@ def test_register_user():
     assert "user_id" in data
 
     #  check duplicate email
-    def test_duplicate_email():
+    def test_duplicate_email(db):
         # first create the user
         client.post(
             "/auth/register",
@@ -42,7 +42,7 @@ def test_register_user():
 
 
         # login test with correct password
-        def test_login_user():
+        def test_login_user(db):
             response = client.post(
                 "/auth/login",
                 json={
