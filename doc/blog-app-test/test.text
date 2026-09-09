@@ -175,6 +175,8 @@ Expect 200
 Check access_token
    ↓
 Check user email/role
+ ------- login with wrong password
+ -------- jwt protested routes
 
 --------------------------------------
 Problem fixed 
