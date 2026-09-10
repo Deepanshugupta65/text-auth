@@ -179,6 +179,7 @@ Check user email/role
  -------- jwt protested routes
 --------- No JWT → user cannot create a task. ❌
 ---------  test an invalid JWT token. 🔐
+-------- logout 
 --------------------------------------
 Problem fixed 
 what problem we are solving ?

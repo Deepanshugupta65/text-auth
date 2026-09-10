@@ -169,4 +169,15 @@ def test_create_task_with_invalid_token(db):
         }
     )
 
-    assert response.status_code in [401, 403]    
+    assert response.status_code in [401, 403]
+    
+        #logout 
+def test_logout(db):
+
+    response = client.post("/auth/logout")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["message"] == "Logged out successfully"

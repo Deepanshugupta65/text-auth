@@ -1,0 +1,51 @@
+
+TASK
+│
+├── 8. Create task
+├── 9. Get tasks
+  authorizaton between two users
+├── 10. Pagination
+├── 11. Search
+├── 12. Filtering
+├── 13. Update task
+├── 14. Delete task
+│
+
+
+1 create tasks 
+
+Create account
+      ↓
+Login
+      ↓
+Get key (JWT)
+      ↓
+Give key to /tasks/
+      ↓
+Create task
+      ↓
+Check task was created
+
+2. get task
+Create user
+    ↓
+Login
+    ↓
+Get JWT 🔑
+    ↓
+Create task
+    ↓
+Ask GET /tasks/
+    ↓
+API gives task
+    ↓
+✅ PASS
+
+
+3  test authorization between two users.
+  User A → can access User A's task ✅
+User A → cannot access User B's task ❌
+Admin → can access other users' tasks ✅
+
+
+4.  Admin can delete another user's task
