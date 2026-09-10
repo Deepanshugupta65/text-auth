@@ -1,0 +1,57 @@
+### Testing implemented in my FastAPI project
+
+I used **pytest and FastAPI TestClient** to automate API testing instead of relying only on manual Postman/Swagger testing.
+
+I created a separate **test PostgreSQL database** so that test data does not affect the actual application database. I also used **pytest fixtures** to reset the test database for each test and provide a reusable database session.
+
+I tested the **authentication flow**, including:
+
+* User registration
+* Duplicate email validation
+* Login with correct password
+* Login with incorrect password
+* JWT token generation
+* Protected API access with a valid JWT
+* Requests with missing or invalid JWT
+* Logout endpoint
+
+I also tested **task APIs**, including:
+
+* Creating tasks
+* Retrieving tasks
+* Updating tasks
+* Deleting tasks
+* Searching tasks
+* Filtering completed tasks
+* Pagination
+* 404 handling for non-existing tasks
+
+For **authorization**, I verified that a normal user can access their own tasks but cannot modify another user's task, while an admin can manage tasks belonging to other users.
+
+I used assertions to verify **HTTP status codes, response data, authentication tokens, user roles, ownership, and expected error messages**.
+
+The testing flow was:
+
+Client → FastAPI Router → Schema Validation → Authentication/Authorization → Database → Response → Assertions
+
+
+
+
+
+“In my FastAPI project, I implemented automated API testing using pytest and FastAPI TestClient. I created a separate PostgreSQL test database and used pytest fixtures to isolate test data. I covered authentication scenarios such as registration, duplicate emails, successful and failed login, JWT validation, protected routes, and logout. For the task APIs, I tested CRUD operations, pagination, filtering, searching, and error cases. I also tested authorization by verifying that users can only manage their own tasks while admins can manage other users' tasks. I used assertions to validate status codes and response data.”
+
+
+
+pytest
+  ↓
+send API request
+  ↓
+FastAPI
+  ↓
+auth / authorization
+  ↓
+database
+  ↓
+check response
+  ↓
+PASS / FAIL

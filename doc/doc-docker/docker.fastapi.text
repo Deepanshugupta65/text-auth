@@ -1,0 +1,220 @@
+FROM python:3.12
+        ↓
+Get Python environment
+
+WORKDIR /app
+        ↓
+Create working directory
+
+COPY requirements.txt .
+        ↓
+Bring dependencies list
+
+RUN pip install ...
+        ↓
+Install dependencies
+
+COPY . .
+        ↓
+Bring application code
+
+CMD uvicorn ...
+        ↓
+Start FastAPI
+
+
+
+
+-----------------------------------------
+
+Docker — What I Did in My FastAPI Project
+1. Before Docker
+
+My application was running directly on my Windows machine.
+
+Windows
+│
+├── FastAPI
+│
+└── PostgreSQL
+
+FastAPI connected to PostgreSQL using:
+
+localhost:5432
+2. I created a Dockerfile
+
+I created:
+
+Dockerfile
+
+It tells Docker how to create my FastAPI application environment.
+
+Dockerfile
+   ↓
+Python environment
+   ↓
+Install requirements
+   ↓
+Copy FastAPI project
+   ↓
+Start Uvicorn
+
+Main idea:
+
+Dockerfile = instructions for building my application image.
+
+3. I built a Docker image
+
+I ran:
+
+docker build -t textauth .
+
+This created:
+
+textauth image
+
+Remember:
+
+Image = blueprint
+Container = running application
+4. First problem I faced
+
+I tried running the FastAPI container.
+
+It failed because FastAPI was trying to connect to:
+
+localhost:5432
+
+But inside Docker:
+
+localhost = FastAPI container itself
+
+PostgreSQL was somewhere else.
+
+So the connection failed.
+
+5. I learned Docker networking
+
+I created a Docker Compose setup with two services:
+
+Docker Compose
+│
+├── FastAPI
+│
+└── PostgreSQL
+
+I changed:
+
+localhost:5432
+
+to:
+
+postgres:5432
+
+Why?
+
+Because postgres is the PostgreSQL service name in Compose.
+
+Now:
+
+FastAPI Container
+       │
+       │ postgres:5432
+       ↓
+PostgreSQL Container
+6. I started both together
+
+I ran:
+
+docker compose up --build
+
+Docker automatically:
+
+Build FastAPI image
+       ↓
+Create Docker network
+       ↓
+Create PostgreSQL container
+       ↓
+Create FastAPI container
+       ↓
+Connect both containers
+Final Architecture
+                         USER / BROWSER
+                               │
+                               │
+                               ▼
+                    http://localhost:8000
+                               │
+                               ▼
+                    ┌──────────────────┐
+                    │  FastAPI         │
+                    │  Container       │
+                    │  textauth-api    │
+                    └────────┬─────────┘
+                             │
+                             │ postgres:5432
+                             ▼
+                    ┌──────────────────┐
+                    │  PostgreSQL      │
+                    │  Container       │
+                    │  textauth DB     │
+                    └──────────────────┘
+
+                       Docker Compose
+                             │
+                       Docker Network
+Why I did this
+Without Docker
+"My machine works"
+
+Another developer may have different:
+
+Python version
+packages
+PostgreSQL version
+environment
+With Docker
+Application
++ Python
++ Dependencies
++ Configuration
+
+can be packaged consistently.
+
+So the main goal is:
+
+Make the application environment reproducible and easier to run/deploy.
+
+What I learned
+
+You can remember these 7 points for interviews:
+
+1. Dockerfile
+   → instructions to build an image
+
+2. Image
+   → packaged application blueprint
+
+3. Container
+   → running image
+
+4. Docker Compose
+   → runs multiple services together
+
+5. Docker Network
+   → allows containers to communicate
+
+6. localhost
+   → means the current container
+
+7. Service name
+   → used for container-to-container communication
+Interview Answer
+“What did you do with Docker in your project?”
+
+You can say:
+
+“I containerized my FastAPI backend using Docker. I created a Dockerfile to install Python dependencies, copy the application code, and run Uvicorn. Then I used Docker Compose to run FastAPI and PostgreSQL as separate containers. I configured them on the same Docker network and used the PostgreSQL service name instead of localhost for database communication.”
+
+That's a good practical answer because you're explaining something you actually built, not just something you studied.

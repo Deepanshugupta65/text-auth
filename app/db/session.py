@@ -1,7 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/textauth"
+
+import os
+
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres:postgres@localhost:5432/textauth"
+)
+
+# DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/textauth"
+
+# DATABASE_URL = "postgresql://postgres:postgres@postgres:5432/textauth"
 
 engine = create_engine(DATABASE_URL)
 

@@ -1,0 +1,51 @@
+        Docker Container
+┌─────────────────────────┐
+│ Your FastAPI application │
+│ Python                   │
+│ Dependencies             │
+│ Required configuration   │
+└─────────────────────────┘
+             ↓
+       Runs consistently
+
+instead of telling someone to install speacific pakage , postgre sql you can give them your docker setup and they can run the container        
+
+                 Docker
+                   │
+       ┌───────────┼───────────┐
+       ↓           ↓           ↓
+    FastAPI    PostgreSQL    Redis
+   Container    Container   Container
+
+
+
+   -------------------------------------------------
+
+                       YOUR COMPUTER
+                         │
+                    Docker Desktop
+                         │
+              ┌──────────┴──────────┐
+              │      Docker         │
+              │                     │
+              │  ┌───────────────┐  │
+              │  │ FastAPI       │  │
+              │  │ Container     │  │
+              │  │               │  │
+              │  │ Python        │  │
+              │  │ FastAPI       │  │
+              │  │ Your code     │  │
+              │  └───────┬───────┘  │
+              │          │           │
+              └──────────┼───────────┘
+                         │
+                    Port 8000
+                         │
+                         ↓
+                  Browser/Postman
+                  localhost:8000
+
+
+question 1 docker file ?
+
+docker need instrution file to telling how do i prepare an environment to run this appliation  thats why docker file is created

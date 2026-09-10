@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: textauth-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: textauth
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  fastapi:
+    build: .
+    container_name: textauth-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/textauth
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
