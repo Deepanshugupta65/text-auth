@@ -1,0 +1,126 @@
+# Redis Integration — FastAPI Project
+
+### Why I Added Redis
+
+My FastAPI app was using PostgreSQL for task data. Every `GET /tasks` request was querying PostgreSQL, so I added Redis as a **caching layer** to reduce repeated database queries and improve response speed.
+
+### Architecture
+
+```text
+                         CLIENT
+                            │
+                            ▼
+                     ┌────────────┐
+                     │  FastAPI   │
+                     │  Container │
+                     └─────┬──────┘
+                           │
+                    Check Redis
+                       /     \
+                    HIT       MISS
+                     │          │
+                     ▼          ▼
+                  Return   PostgreSQL
+                              │
+                              ▼
+                         Save in Redis
+                              │
+                              ▼
+                            Return
+
+        Docker Compose
+        ├── FastAPI
+        ├── PostgreSQL
+        └── Redis
+```
+
+### What I Implemented
+
+* Added Redis as a service in `docker-compose.yml`.
+* Connected FastAPI to Redis using the Python `redis` library.
+* Used `redis:6379` for Docker-to-Docker communication.
+* Added environment-based Redis configuration so:
+
+  * Local pytest → `localhost`
+  * Docker → `redis`
+* Added Redis caching to `GET /tasks`.
+* Used **user-aware cache keys** containing user ID and request parameters such as page, limit, search, and completed status.
+* Added TTL so cached data expires after a fixed time.
+* Added **cache invalidation** after create, update, and delete operations to prevent stale task data.
+
+### Problems I Faced & Fixed
+
+**1. PostgreSQL connection problem**
+
+```text
+localhost:5432
+```
+
+didn't work inside Docker because `localhost` refers to the FastAPI container itself.
+
+**Fix:**
+
+```text
+postgres:5432
+```
+
+**2. Redis connection problem in pytest**
+Docker understands:
+
+```text
+redis:6379
+```
+
+but Windows pytest does not.
+
+**Fix:** Used environment-based configuration:
+
+```text
+Local → localhost
+Docker → redis
+```
+
+**3. Redis package missing inside Docker**
+I installed `redis` locally, but Docker builds from `requirements.txt`.
+
+**Fix:**
+Updated `requirements.txt` and rebuilt the image.
+
+**4. Stale cache problem**
+PostgreSQL could contain new task data while Redis still had old data.
+
+**Fix:**
+Invalidate relevant Redis cache after `POST`, `PUT`, and `DELETE`.
+
+### Main Design Pattern
+
+**Cache-Aside / Lazy Caching**
+
+```text
+Request
+  ↓
+Check Redis
+  ↓
+HIT  → Return cache
+MISS → PostgreSQL → Store in Redis → Return
+```
+
+### Industry Value
+
+This helps when an application has many repeated read requests because Redis can serve frequently requested data quickly and reduce load on PostgreSQL.
+
+The implementation also taught me important backend concepts:
+
+* Caching
+* Cache hit / cache miss
+* TTL
+* Cache invalidation
+* User-specific cache keys
+* Docker networking
+* Environment-based configuration
+* Database load reduction
+* Scalability
+
+### Interview Answer
+
+“I integrated Redis into my FastAPI backend as a caching layer for frequently accessed task data. I implemented a cache-aside flow where the API checks Redis first, queries PostgreSQL on a cache miss, and stores the result in Redis. I also used user-specific cache keys and invalidated the cache after task modifications to avoid stale or cross-user data. I handled different local and Docker environments using environment-based configuration.”

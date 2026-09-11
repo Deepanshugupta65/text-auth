@@ -1,0 +1,18 @@
+GET /tasks
+     │
+     ▼
+   FastAPI
+     │
+     ▼
+ Check Redis
+  │       │
+  │ HIT   │ MISS
+  ▼       ▼
+Redis   PostgreSQL
+  │       │
+  │       ▼
+  │      Save result to Redis
+  │       │
+  └───────┘
+      ↓
+   Response

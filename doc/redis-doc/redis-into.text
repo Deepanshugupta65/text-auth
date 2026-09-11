@@ -1,0 +1,39 @@
+archiectrue after added redis in the project 
+
+                         Client
+                           │
+                           ▼
+                    FastAPI Container
+                      │          │
+                      ▼          ▼
+                PostgreSQL      Redis
+                  Container     Container
+                      │
+                      ▼
+                 Docker Volume
+---------------------------------------------------
+why redis ?
+
+redis is important because postgresql is our main long- term database ,while redis is a very fast temporary Store
+---------------------------------------------------
+need ?
+suppose 1000 use keep requesting :
+Get/tasks ... it will put unncessary load on postgresql 
+---------------------------------------------------
+with redis
+
+1000 requests
+     ↓
+   FastAPI
+     ↓
+   Redis
+   ↙   ↘
+found   not found
+  ↓        ↓
+return   PostgreSQL
+         ↓
+       Redis
+         ↓
+       return
+
+redis can return frequent used data very quickly

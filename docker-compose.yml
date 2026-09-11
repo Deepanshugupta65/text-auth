@@ -11,6 +11,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  redis:
+    image: redis:7
+    container_name: textauth-redis
+    ports:
+      - "6379:6379"
+
   fastapi:
     build: .
     container_name: textauth-api
@@ -20,6 +26,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/textauth
     depends_on:
       - postgres
+      - redis
 
 volumes:
   postgres_data:

@@ -1,0 +1,79 @@
+      part 1 : add redis to docker compose
+      
+                 Docker Compose
+                      │
+       ┌──────────────┼──────────────┐
+       ▼              ▼              ▼
+   FastAPI        PostgreSQL       Redis
+   Container       Container      Container
+                      │
+                      ▼
+                 Docker Volume
+
+
+We are going to run Redis as another Docker container:
+
+Docker Compose
+│
+├── FastAPI container
+├── PostgreSQL container
+└── Redis container
+
+----------------
+step 1 :
+
+open docker-compose.yml
+  redis:
+    image: redis:7
+    container_name: textauth-redis
+    ports:
+      - "6379:6379"
+
+Docker Compose
+│
+├── FastAPI
+│     port 8000
+│
+├── PostgreSQL
+│     port 5432
+│
+└── Redis
+      port 6379
+
+We are only saying:
+
+“Docker, please start a Redis server along with my FastAPI and PostgreSQL.”
+
+how to strt ??
+ PS E:\backend-python\textauth>  
+ docker compose up --build
+
+step 2 :
+--------------------------------
+pip install redis  
+
+----------------------
+step 3
+Step 3 — Add Redis configuration
+--------------------------------
+Create:
+
+app/core/redis.py
+
+Put:
+
+import redis
+
+redis_client = redis.Redis(
+    host="redis",
+    port=6379,
+    decode_responses=True
+)
+
+it create connection from fast api code  -> redis server
+
+FastAPI
+   ↓
+redis:6379
+   ↓
+Redis container

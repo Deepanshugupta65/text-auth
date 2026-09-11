@@ -15,6 +15,9 @@ from app.core.security import get_current_user
 from app.core.logger import logger
 # pagination filtering and search
 from fastapi import Query
+
+from app.core.redis import redis_client
+import json
 #  api router : used to group related routes
 # depends fastapi depedncy injection system
 # session ; sqlachemy session type
@@ -69,6 +72,49 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db),current_user = D
 
 # @router.get("/", response_model=List[TaskResponse])
 # def get_all_tasks(db: Session = Depends(get_db),current_user = Depends(get_current_user)):
+# @router.get("/")
+# def get_all_tasks(
+#     page: int = Query(1, ge=1),
+#     limit: int = Query(10, le=100),
+#     search: str = Query(None),
+#     completed: bool = Query(None),
+#     db: Session = Depends(get_db),
+#     current_user = Depends(get_current_user)
+# ):
+#     # if current_user.role == "admin":
+#     #     tasks = db.query(Task).all()
+#     # else:
+#     #     tasks = db.query(Task).filter(Task.owner_id == current_user.id).all()    
+#     # return tasks
+
+#     # Role-based access
+#     if current_user.role == "admin":
+#         query = db.query(Task)
+#     else:
+#         query = db.query(Task).filter(Task.owner_id == current_user.id)
+
+#     # Search
+#     if search:
+#         query = query.filter(Task.title.ilike(f"%{search}%"))
+
+#     # Filter
+#     if completed is not None:
+#         query = query.filter(Task.completed == completed)
+
+#     # Total count
+#     total = query.count()
+
+#     # Pagination
+#     skip = (page - 1) * limit
+#     tasks = query.offset(skip).limit(limit).all()
+
+#     return {
+#         "total": total,
+#         "page": page,
+#         "limit": limit,
+#         "data": tasks
+#     }
+
 @router.get("/")
 def get_all_tasks(
     page: int = Query(1, ge=1),
@@ -78,13 +124,27 @@ def get_all_tasks(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    # if current_user.role == "admin":
-    #     tasks = db.query(Task).all()
-    # else:
-    #     tasks = db.query(Task).filter(Task.owner_id == current_user.id).all()    
-    # return tasks
+    # Create a unique cache key
+    cache_key = (
+        f"tasks:"
+        f"user={current_user.id}:"
+        f"role={current_user.role}:"
+        f"page={page}:"
+        f"limit={limit}:"
+        f"search={search}:"
+        f"completed={completed}"
+    )
 
-    # Role-based access
+    # 1. Check Redis
+    cached_data = redis_client.get(cache_key)
+
+    if cached_data:
+        logger.info(f"Cache HIT: {cache_key}")
+        return json.loads(cached_data)
+
+    logger.info(f"Cache MISS: {cache_key}")
+
+    # 2. If not in Redis, query PostgreSQL
     if current_user.role == "admin":
         query = db.query(Task)
     else:
@@ -105,12 +165,37 @@ def get_all_tasks(
     skip = (page - 1) * limit
     tasks = query.offset(skip).limit(limit).all()
 
-    return {
+    result = {
         "total": total,
         "page": page,
         "limit": limit,
         "data": tasks
     }
+
+    # 3. Save result in Redis
+    redis_client.setex(
+        cache_key,
+        60,
+        json.dumps(
+            {
+                "total": total,
+                "page": page,
+                "limit": limit,
+                "data": [
+                    {
+                        "id": task.id,
+                        "title": task.title,
+                        "completed": task.completed,
+                        "owner_id": task.owner_id
+                    }
+                    for task in tasks
+                ]
+            }
+        )
+    )
+
+    return result
+
 
 # delete task
 
