@@ -1,0 +1,473 @@
+# TaskLock
+
+**TaskLock** is a backend task management API built with **FastAPI, PostgreSQL, SQLAlchemy, JWT authentication, Redis, Docker, and Pytest**.
+
+The project is being developed as an industry-oriented backend system while progressively applying **system design, caching, authentication, testing, containerization, and scalability concepts**.
+
+> **Current focus:** Backend engineering + System Design + DevOps fundamentals
+> **Future direction:** CI/CD → AWS → GenAI/RAG → MLOps concepts
+
+---
+
+## Architecture
+
+```text
+                    Client
+               (Postman / Frontend)
+                       |
+                       | HTTP / REST
+                       v
+                ┌──────────────┐
+                │   FastAPI    │
+                │              │
+                │  Middleware  │
+                │   Routers    │
+                │ JWT Security │
+                │   Pydantic   │
+                └──────┬───────┘
+                       |
+              ┌────────┴────────┐
+              |                 |
+              v                 v
+          ┌───────┐        ┌────────────┐
+          │ Redis │        │ PostgreSQL │
+          │ Cache │        │ Database   │
+          └───────┘        └────────────┘
+```
+
+### Cache flow
+
+```text
+GET /tasks
+     |
+     v
+   Redis
+     |
+   ┌─┴───────────┐
+   |             |
+ HIT           MISS
+   |             |
+   v             v
+Response      PostgreSQL
+                 |
+                 v
+            Store in Redis
+                 |
+                 v
+              Response
+```
+
+### Write operations
+
+```text
+CREATE / UPDATE / DELETE
+          |
+          v
+      PostgreSQL
+          |
+          v
+   Cache Invalidation
+          |
+          v
+      Redis cache
+```
+
+PostgreSQL acts as the **source of truth**, while Redis is used to improve read performance.
+
+---
+
+## Features
+
+### Authentication
+
+* User registration
+* User login
+* Password hashing
+* JWT-based authentication
+* Logout flow
+* Protected API foundation
+
+### Task Management
+
+* Create tasks
+* Read tasks
+* Update tasks
+* Delete tasks
+* User/task relationship
+* API validation using Pydantic
+
+### Database
+
+* PostgreSQL
+* SQLAlchemy ORM
+* Separate test database
+* Database models and relationships
+
+### Redis Caching
+
+* Redis integration
+* Task caching
+* Cache hit/miss flow
+* Cache invalidation
+* Redis-based cache keys
+* Dockerized Redis
+
+### Middleware & Logging
+
+* Request middleware
+* Request logging
+* Response status logging
+
+### Testing
+
+* Pytest
+* FastAPI `TestClient`
+* Authentication tests
+* Database tests
+* API tests
+* Separate test database
+
+### Docker
+
+The application runs using Docker Compose with separate services:
+
+```text
+FastAPI
+PostgreSQL
+Redis
+```
+
+Docker networking allows the containers to communicate using service names rather than `localhost`.
+
+---
+
+## Tech Stack
+
+| Technology     | Purpose                     |
+| -------------- | --------------------------- |
+| Python         | Backend programming         |
+| FastAPI        | REST API framework          |
+| PostgreSQL     | Relational database         |
+| SQLAlchemy     | ORM / database access       |
+| Pydantic       | Data validation             |
+| JWT            | Authentication              |
+| Redis          | Caching                     |
+| Pytest         | Testing                     |
+| Docker         | Containerization            |
+| Docker Compose | Multi-container development |
+
+---
+
+## Project Structure
+
+```text
+textauth/
+│
+├── app/
+│   ├── api/
+│   │   ├── auth.py
+│   │   └── text.py
+│   │
+│   ├── core/
+│   │   ├── logger.py
+│   │   └── security.py
+│   │
+│   ├── db/
+│   │   ├── base.py
+│   │   └── session.py
+│   │
+│   ├── model/
+│   │   ├── task.py
+│   │   └── user.py
+│   │
+│   ├── schema/
+│   │   ├── task.py
+│   │   └── user.py
+│   │
+│   └── main.py
+│
+├── tests/
+│   ├── conftest.py
+│   ├── test_auth.py
+│   ├── test_database.py
+│   └── test_main.py
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Running the Project
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repository-url>
+cd textauth
+```
+
+### 2. Build and start the containers
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+```text
+FastAPI     → localhost:8000
+PostgreSQL  → localhost:5432
+Redis       → localhost:6379
+```
+
+### 3. Open the API documentation
+
+Visit:
+
+```text
+http://localhost:8000/docs
+```
+
+FastAPI automatically provides interactive Swagger/OpenAPI documentation.
+
+---
+
+## Running Tests
+
+Run the test suite with:
+
+```bash
+pytest -v
+```
+
+The project uses a separate test database so that application testing does not interfere with development data.
+
+---
+
+## System Design Concepts Currently Implemented
+
+This project is also being used as a practical system-design learning project.
+
+### Currently implemented
+
+* REST API design
+* Layered backend structure
+* Authentication
+* Authorization foundation
+* Stateless JWT authentication
+* Relational database design
+* ORM
+* Database persistence
+* Caching
+* Cache-aside pattern
+* Cache invalidation
+* Containerized architecture
+* Middleware
+* Logging
+* Test environment isolation
+
+### System design concepts being explored next
+
+* Database indexing
+* Pagination
+* Filtering and sorting
+* Rate limiting
+* Background processing
+* Message queues
+* Horizontal scaling
+* Load balancing
+* Health checks
+* Monitoring and observability
+* Fault tolerance
+* Database scaling
+
+---
+
+## Development Roadmap
+
+### Phase 1 — Backend Foundation
+
+* [x] FastAPI application
+* [x] PostgreSQL
+* [x] SQLAlchemy
+* [x] User authentication
+* [x] JWT
+* [x] Task CRUD
+* [x] Pydantic validation
+* [x] Middleware
+* [x] Pytest
+* [x] Docker
+* [x] Docker Compose
+
+### Phase 2 — Caching
+
+* [x] Redis integration
+* [x] Task caching
+* [x] Cache hit/miss flow
+* [x] Cache invalidation
+* [ ] Redis failure fallback
+* [ ] Cache-specific automated tests
+* [ ] TTL strategy
+
+### Phase 3 — Backend & System Design
+
+* [ ] Complete authorization/RBAC
+* [ ] Pagination
+* [ ] Filtering and sorting
+* [ ] Database indexing
+* [ ] Query optimization
+* [ ] Transactions
+* [ ] Connection pooling
+* [ ] Rate limiting
+* [ ] Background jobs
+* [ ] Message queues
+
+### Phase 4 — DevOps / Cloud
+
+* [ ] GitHub Actions CI
+* [ ] Automated testing pipeline
+* [ ] Docker image pipeline
+* [ ] AWS deployment
+* [ ] Infrastructure as Code
+* [ ] Terraform
+* [ ] Monitoring
+* [ ] Production configuration
+
+### Phase 5 — GenAI
+
+* [ ] LLM API integration
+* [ ] AI-powered task features
+* [ ] Prompt engineering
+* [ ] Structured LLM output
+* [ ] Embeddings
+* [ ] Vector database
+* [ ] RAG
+* [ ] AI background workers
+
+### Phase 6 — Production AI / MLOps
+
+* [ ] AI service deployment
+* [ ] AI evaluation
+* [ ] AI observability
+* [ ] Model/version management
+* [ ] AI pipeline concepts
+* [ ] Production GenAI architecture
+
+---
+
+## Key Design Decisions
+
+### Why PostgreSQL?
+
+PostgreSQL provides reliable relational storage, transactions, constraints, and structured querying. It is the persistent source of truth for application data.
+
+### Why Redis?
+
+Frequently accessed data can be served from memory instead of querying PostgreSQL every time, reducing database load and improving response latency.
+
+### Why Cache Invalidation?
+
+When task data changes, the corresponding cached data may become stale.
+
+Therefore:
+
+```text
+Write → PostgreSQL → Invalidate Redis
+```
+
+The next read retrieves fresh data from PostgreSQL and repopulates the cache.
+
+### Why Docker?
+
+Docker provides consistent development environments and allows the application, database, and Redis to run as isolated services.
+
+### Why FastAPI?
+
+FastAPI provides:
+
+* Automatic API documentation
+* Request validation
+* Dependency injection
+* Type hints
+* High-performance API development
+* Easy integration with Python-based AI/ML services
+
+---
+
+## Learning Objectives
+
+This project is not only a CRUD application. It is being developed to understand how a backend system evolves from a simple API into a scalable production architecture.
+
+The main learning areas are:
+
+```text
+Backend Engineering
+        +
+Database Design
+        +
+Caching
+        +
+System Design
+        +
+Testing
+        +
+Docker
+        +
+DevOps / Cloud
+        +
+GenAI
+        +
+MLOps
+```
+
+---
+
+## Future Architecture
+
+The planned evolution of TaskLock is:
+
+```text
+                         Client
+                           |
+                           v
+                    Load Balancer
+                           |
+              ┌────────────┼────────────┐
+              v            v            v
+          FastAPI #1   FastAPI #2   FastAPI #3
+              |            |            |
+              └────────────┼────────────┘
+                           |
+              ┌────────────┴────────────┐
+              |                         |
+              v                         v
+            Redis                  PostgreSQL
+              |
+              v
+       Background Queue
+              |
+              v
+         AI Worker
+              |
+       ┌──────┴──────┐
+       v             v
+   Vector DB        LLM
+       |
+       v
+      RAG
+```
+
+The goal is to gradually transform TaskLock into a **scalable, cloud-deployed, AI-enabled backend system** while understanding the system-design decisions behind each component.
+
+---
+
+## Status
+
+**Current status:** Active development
+
+**Current focus:** Redis caching, cache invalidation, backend architecture, and system-design fundamentals.
+
+> Technologies listed under the roadmap are planned features and are not represented as currently implemented.
