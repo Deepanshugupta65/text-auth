@@ -28,3 +28,115 @@
    ┌────┼────────┐
    ↓    ↓        ↓
  RAG  AI Search  AI Assistant
+
+
+
+
+ ------------------------------------------------
+
+                               TASKLOCK
+                    FastAPI Task Management System
+                              │
+                              │ HTTP/REST
+                              ▼
+                  ┌─────────────────────────┐
+                  │        CLIENT           │
+                  │   Postman / Frontend    │
+                  └────────────┬────────────┘
+                               │
+                               ▼
+                  ┌─────────────────────────┐
+                  │        FASTAPI          │
+                  │                         │
+                  │  ┌───────────────────┐  │
+                  │  │    Middleware     │  │
+                  │  │ Request Logging   │  │
+                  │  └─────────┬─────────┘  │
+                  │            ▼             │
+                  │  ┌───────────────────┐  │
+                  │  │      Routers      │  │
+                  │  │ Auth │ Task APIs  │  │
+                  │  └─────────┬─────────┘  │
+                  │            ▼             │
+                  │  ┌───────────────────┐  │
+                  │  │ Authentication    │  │
+                  │  │ JWT + Authorization│ │
+                  │  └─────────┬─────────┘  │
+                  │            ▼             │
+                  │  ┌───────────────────┐  │
+                  │  │ Pydantic Schemas  │  │
+                  │  │ Request Validation │ │
+                  │  └─────────┬─────────┘  │
+                  └────────────┼────────────┘
+                               │
+                    ┌──────────┴──────────┐
+                    │                     │
+                    ▼                     ▼
+           ┌────────────────┐    ┌─────────────────┐
+           │     REDIS      │    │    SQLALCHEMY   │
+           │     CACHE      │    │       ORM       │
+           │                │    └────────┬────────┘
+           │ Cache HIT      │             │
+           │      ↓         │             ▼
+           │ Return data    │    ┌─────────────────┐
+           │                │    │   POSTGRESQL    │
+           │ Cache MISS ───┼───►│   Persistent    │
+           │      ↑         │    │     Data        │
+           │      │         │    └─────────────────┘
+           │  Store fresh  │
+           │     data      │
+           └────────────────┘
+
+                    CACHE INVALIDATION
+              Create / Update / Delete
+                         │
+                         ▼
+                PostgreSQL updated
+                         │
+                         ▼
+                  Redis cache deleted
+                         │
+                         ▼
+                  Next GET = fresh data
+
+
+     ┌──────────────────────────────────────────────────┐
+     │                    TESTING                        │
+     │  Pytest → Auth Tests → API Tests → DB Tests     │
+     │              → Separate Test Database             │
+     └──────────────────────────────────────────────────┘
+
+
+     ┌──────────────────────────────────────────────────┐
+     │                     DOCKER                       │
+     │                                                  │
+     │  ┌───────────┐   ┌───────────┐   ┌───────────┐ │
+     │  │  FastAPI  │   │ PostgreSQL│   │   Redis   │ │
+     │  │ Container │   │ Container │   │ Container │ │
+     │  └───────────┘   └───────────┘   └───────────┘ │
+     │                 Docker Compose                   │
+     └──────────────────────────────────────────────────┘
+
+
+
+
+     ---------------------------------
+     for Interview
+
+     I built a task management backend using FastAPI, PostgreSQL, SQLAlchemy, JWT authentication, Docker, pytest, and Redis.
+
+At a high level, the client communicates with my FastAPI application through REST APIs. I separated the application into routers for authentication and task-related operations rather than keeping everything inside the main application file.
+
+When a request comes in, middleware handles request logging. For protected APIs, I use JWT-based authentication to identify the user and control access. Pydantic schemas are used to validate incoming and outgoing data before it reaches the database layer.
+
+For persistence, I use PostgreSQL with SQLAlchemy as the ORM. Users and their tasks are stored in PostgreSQL, so the database remains the source of truth.
+
+I also introduced Redis as a caching layer for frequently accessed task data. For a read request, the application first checks Redis. If the data exists, it returns the cached response. If there is a cache miss, the application queries PostgreSQL, returns the result, and stores the relevant data in Redis.
+
+One important part of the Redis implementation is cache invalidation. When a task is created, updated, or deleted, the corresponding cached data becomes stale, so I invalidate the relevant Redis cache. The next read then fetches fresh data from PostgreSQL and repopulates the cache.
+
+For reliability and maintainability, I created automated tests using pytest, including authentication, API, and database-related tests, with a separate test database so testing does not affect development data.
+
+Finally, I containerized the application using Docker and Docker Compose. The application, PostgreSQL, and Redis can run as separate containers connected through the Docker network.
+
+The next improvements I plan are completing the Redis implementation, strengthening authorization and error handling, adding database migrations, CI/CD, cloud deployment, and then integrating GenAI and RAG capabilities.
