@@ -16,7 +16,7 @@ from app.core.logger import logger
 # pagination filtering and search
 from fastapi import Query
 
-from app.core.redis import redis_client
+from app.core.redis import redis_client ,clear_task_cache
 import json
 #  api router : used to group related routes
 # depends fastapi depedncy injection system
@@ -56,6 +56,8 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db),current_user = D
         # 4. Refresh to get the DB-generated ID
         db.refresh(new_task)
 
+        clear_task_cache(current_user.id)
+        
         logger.info(f"User{current_user.id} created task {new_task.id}")
         
         # 5. Return the result
@@ -212,9 +214,10 @@ def delete_task(task_id:int,db:Session=Depends(get_db),current_user = Depends(ge
     if task.owner_id != current_user.id and current_user.role != "admin":
         raise HTTPException(status_code=403,detail="Not authorized")
     # delter task
+    owner_id = task.owner_id
     db.delete(task)
     db.commit()
-
+    clear_task_cache(owner_id)
     return {"message":"Task deleted successfully"}
 
 # uodate the task
@@ -238,5 +241,5 @@ def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_db),cu
 
     db.commit()
     db.refresh(db_task)
-
+    clear_task_cache(current_user.id)
     return db_task

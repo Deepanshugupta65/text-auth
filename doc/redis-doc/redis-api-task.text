@@ -16,3 +16,20 @@ Redis   PostgreSQL
   └───────┘
       ↓
    Response
+
+
+   // cache invaildation 
+
+   create_task()
+    ↓
+clear_task_cache()
+
+update_task()
+    ↓
+clear_task_cache()
+
+delete_task()
+    ↓
+clear_task_cache()
+
+we are creating cache invalidation specifically to prevent Redis from returning old task data after PostgreSQL is changed.

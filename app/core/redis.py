@@ -8,3 +8,9 @@ redis_client = redis.Redis(
     port=6379,
     decode_responses=True
 )
+
+def clear_task_cache(user_id: int):
+    keys = redis_client.scan_iter(match=f"tasks:user={user_id}:*")
+
+    for key in keys:
+        redis_client.delete(key)
