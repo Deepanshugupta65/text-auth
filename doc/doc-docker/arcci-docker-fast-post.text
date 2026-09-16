@@ -1,0 +1,19 @@
+                     YOUR COMPUTER
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+       localhost:8000              localhost:5432
+             │                           │
+             ▼                           ▼
+          Docker                      Docker
+             │                           │
+             ▼                           ▼
+     ┌──────────────┐            ┌──────────────┐
+     │ FastAPI      │            │ PostgreSQL   │
+     │ Container    │            │ Container    │
+     │              │            │              │
+     │ :8000        │            │ :5432        │
+     └──────┬───────┘            └──────▲───────┘
+            │                           │
+            │     Docker Network        │
+            └──── postgres:5432 ────────┘ 

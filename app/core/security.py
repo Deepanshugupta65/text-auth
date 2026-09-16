@@ -64,30 +64,9 @@ security = HTTPBearer()
 
 from app.db.session import get_db
 
-
-# def get_db():
-
-#     # create db connection
-
-#     db = SessionLocal()
-
-#     try:
-
-#         # send db session to fun using it
-
-#         yield db
-
-#     finally:
-
-#         # closes db after req ends
-
-#         db.close()
-
-
 def get_current_user(
 
     # read token from header and stores in credentials , db session injected
-
     credentials: HTTPAuthorizationCredentials = Depends(security),
 
     db: Session = Depends(get_db)
@@ -118,7 +97,6 @@ def get_current_user(
                 status_code=401,
                 detail="Invalid token"
             )
-
     except JWTError:
 
         # if token is expired , modified ,wrong then reject requests
