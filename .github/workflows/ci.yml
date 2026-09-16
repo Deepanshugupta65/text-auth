@@ -57,3 +57,7 @@ jobs:
           REDIS_HOST: localhost
         run: |
           pytest -v
+
+      - name: Build Docker image
+        run: |
+          docker build -t textauth-fastapi .
