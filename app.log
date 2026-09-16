@@ -2908,3 +2908,1169 @@
 2026-09-13 19:29:59,035 - INFO - Cache MISS: tasks:user=2:role=user:page=1:limit=10:search=None:completed=None
 2026-09-13 19:29:59,038 - INFO - Response Status: 200
 2026-09-13 19:29:59,041 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 19:37:01,682 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:02,294 - INFO - Response Status: 200
+2026-09-16 19:37:02,301 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:02,431 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:02,979 - INFO - Response Status: 200
+2026-09-16 19:37:02,983 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:02,988 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:02,997 - INFO - Response Status: 400
+2026-09-16 19:37:03,001 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-16 19:37:03,082 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:03,597 - INFO - Response Status: 200
+2026-09-16 19:37:03,600 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:03,614 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:37:04,049 - INFO - Response Status: 200
+2026-09-16 19:37:04,054 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:37:04,167 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:04,582 - INFO - Response Status: 200
+2026-09-16 19:37:04,586 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:04,593 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:37:05,045 - INFO - Response Status: 400
+2026-09-16 19:37:05,048 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-16 19:37:05,141 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:05,586 - INFO - Response Status: 200
+2026-09-16 19:37:05,592 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:05,599 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:37:06,015 - INFO - Response Status: 200
+2026-09-16 19:37:06,019 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:37:06,024 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:37:39,645 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:37:39,648 - INFO - Response Status: 500
+2026-09-16 19:37:39,652 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:37:40,160 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:37:40,166 - INFO - Response Status: 401
+2026-09-16 19:37:40,169 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 19:37:40,249 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:37:40,255 - INFO - Response Status: 401
+2026-09-16 19:37:40,259 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 19:37:40,346 - INFO - Request: POST http://testserver/auth/logout
+2026-09-16 19:37:40,349 - INFO - Response Status: 200
+2026-09-16 19:37:40,352 - INFO - HTTP Request: POST http://testserver/auth/logout "HTTP/1.1 200 OK"
+2026-09-16 19:37:40,366 - INFO - Request: GET http://testserver/
+2026-09-16 19:37:40,420 - INFO - Response Status: 200
+2026-09-16 19:37:40,423 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-16 19:37:40,517 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:37:41,035 - INFO - Response Status: 200
+2026-09-16 19:37:41,039 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:37:41,045 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:37:41,565 - INFO - Response Status: 200
+2026-09-16 19:37:41,569 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:37:41,575 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:38:15,079 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:38:15,082 - INFO - Response Status: 500
+2026-09-16 19:38:15,085 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:38:15,197 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:38:15,625 - INFO - Response Status: 200
+2026-09-16 19:38:15,629 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:38:15,633 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:38:16,147 - INFO - Response Status: 200
+2026-09-16 19:38:16,151 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:38:16,155 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:38:49,975 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:38:49,978 - INFO - Response Status: 500
+2026-09-16 19:38:49,984 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:38:50,095 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:38:50,423 - INFO - Response Status: 200
+2026-09-16 19:38:50,425 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:38:50,428 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:38:50,818 - INFO - Response Status: 200
+2026-09-16 19:38:50,823 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:38:50,827 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:39:24,283 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:39:24,285 - INFO - Response Status: 500
+2026-09-16 19:39:24,289 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:39:24,477 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:39:24,906 - INFO - Response Status: 200
+2026-09-16 19:39:24,908 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:39:24,911 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:39:25,320 - INFO - Response Status: 200
+2026-09-16 19:39:25,327 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:39:25,347 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:39:59,068 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:39:59,070 - INFO - Response Status: 500
+2026-09-16 19:39:59,073 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:39:59,181 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:39:59,705 - INFO - Response Status: 200
+2026-09-16 19:39:59,709 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:39:59,713 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:40:00,206 - INFO - Response Status: 200
+2026-09-16 19:40:00,210 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:40:00,214 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:40:34,856 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:40:34,858 - INFO - Response Status: 500
+2026-09-16 19:40:34,860 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:40:35,053 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:40:35,421 - INFO - Response Status: 200
+2026-09-16 19:40:35,424 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:40:35,427 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:40:35,791 - INFO - Response Status: 200
+2026-09-16 19:40:35,795 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:40:35,799 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:41:10,074 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:41:10,076 - INFO - Response Status: 500
+2026-09-16 19:41:10,079 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:41:10,083 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:41:43,244 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:41:43,246 - INFO - Response Status: 500
+2026-09-16 19:41:43,250 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:41:43,258 - INFO - Request: GET http://testserver/tasks/?search=FastAPI
+2026-09-16 19:42:18,937 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:42:19,253 - INFO - Response Status: 200
+2026-09-16 19:42:19,255 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:42:19,258 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:42:19,578 - INFO - Response Status: 200
+2026-09-16 19:42:19,581 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:42:19,584 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:42:54,088 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:42:54,091 - INFO - Response Status: 500
+2026-09-16 19:42:54,095 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:42:54,134 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:43:27,152 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:43:27,154 - INFO - Response Status: 500
+2026-09-16 19:43:27,156 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:43:27,161 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:44:00,507 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:44:00,530 - INFO - Response Status: 500
+2026-09-16 19:44:00,543 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:44:00,553 - INFO - Request: GET http://testserver/tasks/?page=1&limit=2
+2026-09-16 19:44:36,014 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:44:36,505 - INFO - Response Status: 200
+2026-09-16 19:44:36,511 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:44:36,517 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:44:36,937 - INFO - Response Status: 200
+2026-09-16 19:44:36,940 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:44:36,944 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:45:10,817 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:45:10,818 - INFO - Response Status: 500
+2026-09-16 19:45:10,821 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:45:10,824 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:45:44,371 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:45:44,373 - INFO - Response Status: 500
+2026-09-16 19:45:44,377 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:45:44,382 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:45:44,630 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:45:45,142 - INFO - Response Status: 200
+2026-09-16 19:45:45,145 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:45:45,149 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:45:45,609 - INFO - Response Status: 200
+2026-09-16 19:45:45,615 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:45:45,621 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:46:19,374 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:46:19,449 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:46:19,804 - INFO - Response Status: 200
+2026-09-16 19:46:19,807 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:46:19,810 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:46:20,112 - INFO - Response Status: 200
+2026-09-16 19:46:20,116 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:46:20,121 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:46:53,692 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:46:53,694 - INFO - Response Status: 500
+2026-09-16 19:46:53,697 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:46:53,786 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:46:54,315 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:46:54,656 - INFO - Response Status: 200
+2026-09-16 19:46:54,659 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:46:54,662 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:46:54,977 - INFO - Response Status: 200
+2026-09-16 19:46:54,980 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:46:54,983 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:47:28,303 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:47:28,306 - INFO - Response Status: 500
+2026-09-16 19:47:28,309 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:47:28,417 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:47:28,742 - INFO - Response Status: 200
+2026-09-16 19:47:28,745 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:47:28,748 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:47:29,087 - INFO - Response Status: 200
+2026-09-16 19:47:29,089 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:47:29,092 - INFO - Request: DELETE http://testserver/tasks/99999
+2026-09-16 19:47:29,107 - INFO - Response Status: 404
+2026-09-16 19:47:29,108 - INFO - HTTP Request: DELETE http://testserver/tasks/99999 "HTTP/1.1 404 Not Found"
+2026-09-16 19:47:29,167 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:47:29,502 - INFO - Response Status: 200
+2026-09-16 19:47:29,505 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:47:29,508 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:47:29,864 - INFO - Response Status: 200
+2026-09-16 19:47:29,867 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:47:29,870 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:48:03,205 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:48:03,207 - INFO - Response Status: 500
+2026-09-16 19:48:03,209 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:48:03,214 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:48:03,558 - INFO - Response Status: 200
+2026-09-16 19:48:03,561 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:48:03,566 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:48:03,880 - INFO - Response Status: 200
+2026-09-16 19:48:03,883 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:48:03,886 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 19:48:38,039 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 19:48:38,041 - INFO - Response Status: 500
+2026-09-16 19:48:38,044 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 19:48:38,049 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 19:59:49,968 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 19:59:50,456 - INFO - Response Status: 200
+2026-09-16 19:59:50,458 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 19:59:50,460 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 19:59:50,949 - INFO - Response Status: 200
+2026-09-16 19:59:50,951 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 19:59:50,955 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:00:24,349 - ERROR - Task creation failed: Error 11001 connecting to redis:6379. getaddrinfo failed.
+2026-09-16 20:00:24,352 - INFO - Response Status: 500
+2026-09-16 20:00:24,353 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 500 Internal Server Error"
+2026-09-16 20:09:33,852 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:09:34,263 - INFO - Response Status: 200
+2026-09-16 20:09:34,265 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:09:34,267 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:09:34,634 - INFO - Response Status: 200
+2026-09-16 20:09:34,636 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:09:34,639 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:09:34,847 - INFO - User1 created task 1
+2026-09-16 20:09:34,847 - INFO - Response Status: 201
+2026-09-16 20:09:34,852 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:07,121 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:07,576 - INFO - Response Status: 200
+2026-09-16 20:10:07,579 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:07,581 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:07,953 - INFO - Response Status: 200
+2026-09-16 20:10:07,954 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:07,955 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:08,009 - INFO - User1 created task 1
+2026-09-16 20:10:08,012 - INFO - Response Status: 201
+2026-09-16 20:10:08,014 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:08,128 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:08,439 - INFO - Response Status: 200
+2026-09-16 20:10:08,440 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:08,441 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:08,810 - INFO - Response Status: 200
+2026-09-16 20:10:08,812 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:08,814 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:08,842 - INFO - User1 created task 1
+2026-09-16 20:10:08,842 - INFO - Response Status: 201
+2026-09-16 20:10:08,845 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:08,847 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:10:08,858 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:10:08,874 - INFO - Response Status: 200
+2026-09-16 20:10:08,875 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:10:08,953 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:09,309 - INFO - Response Status: 200
+2026-09-16 20:10:09,311 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:09,313 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:09,665 - INFO - Response Status: 200
+2026-09-16 20:10:09,666 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:09,667 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:09,685 - INFO - User1 created task 1
+2026-09-16 20:10:09,686 - INFO - Response Status: 201
+2026-09-16 20:10:09,687 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:09,688 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:10,035 - INFO - Response Status: 200
+2026-09-16 20:10:10,036 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:10,038 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:10,397 - INFO - Response Status: 200
+2026-09-16 20:10:10,398 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:10,399 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:10,407 - INFO - Response Status: 403
+2026-09-16 20:10:10,408 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 403 Forbidden"
+2026-09-16 20:10:10,513 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:10,837 - INFO - Response Status: 200
+2026-09-16 20:10:10,839 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:10,840 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:11,148 - INFO - Response Status: 200
+2026-09-16 20:10:11,149 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:11,150 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:11,173 - INFO - User1 created task 1
+2026-09-16 20:10:11,174 - INFO - Response Status: 201
+2026-09-16 20:10:11,175 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:11,178 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:11,551 - INFO - Response Status: 200
+2026-09-16 20:10:11,552 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:11,560 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:11,909 - INFO - Response Status: 200
+2026-09-16 20:10:11,911 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:11,913 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:11,924 - INFO - Response Status: 200
+2026-09-16 20:10:11,924 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:11,999 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:12,328 - INFO - Response Status: 200
+2026-09-16 20:10:12,330 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:12,331 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:12,691 - INFO - Response Status: 200
+2026-09-16 20:10:12,692 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:12,695 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:12,715 - INFO - User1 created task 1
+2026-09-16 20:10:12,716 - INFO - Response Status: 201
+2026-09-16 20:10:12,717 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:12,719 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:10:12,741 - INFO - Response Status: 200
+2026-09-16 20:10:12,746 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:12,749 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:12,767 - INFO - User1 created task 2
+2026-09-16 20:10:12,768 - INFO - Response Status: 201
+2026-09-16 20:10:12,770 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:12,772 - INFO - Request: GET http://testserver/tasks/?completed=true
+2026-09-16 20:10:12,781 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=True
+2026-09-16 20:10:12,790 - INFO - Response Status: 200
+2026-09-16 20:10:12,791 - INFO - HTTP Request: GET http://testserver/tasks/?completed=true "HTTP/1.1 200 OK"
+2026-09-16 20:10:12,874 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:13,203 - INFO - Response Status: 200
+2026-09-16 20:10:13,204 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:13,205 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:13,584 - INFO - Response Status: 200
+2026-09-16 20:10:13,585 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:13,587 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:13,609 - INFO - User1 created task 1
+2026-09-16 20:10:13,611 - INFO - Response Status: 201
+2026-09-16 20:10:13,613 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:13,614 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:13,625 - INFO - User1 created task 2
+2026-09-16 20:10:13,626 - INFO - Response Status: 201
+2026-09-16 20:10:13,628 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:13,629 - INFO - Request: GET http://testserver/tasks/?search=FastAPI
+2026-09-16 20:10:13,635 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=FastAPI:completed=None
+2026-09-16 20:10:13,646 - INFO - Response Status: 200
+2026-09-16 20:10:13,647 - INFO - HTTP Request: GET http://testserver/tasks/?search=FastAPI "HTTP/1.1 200 OK"
+2026-09-16 20:10:13,720 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:14,044 - INFO - Response Status: 200
+2026-09-16 20:10:14,045 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:14,046 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:14,429 - INFO - Response Status: 200
+2026-09-16 20:10:14,432 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:14,434 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:14,453 - INFO - User1 created task 1
+2026-09-16 20:10:14,454 - INFO - Response Status: 201
+2026-09-16 20:10:14,455 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:14,457 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:14,468 - INFO - User1 created task 2
+2026-09-16 20:10:14,468 - INFO - Response Status: 201
+2026-09-16 20:10:14,469 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:14,471 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:14,484 - INFO - User1 created task 3
+2026-09-16 20:10:14,484 - INFO - Response Status: 201
+2026-09-16 20:10:14,485 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:14,487 - INFO - Request: GET http://testserver/tasks/?page=1&limit=2
+2026-09-16 20:10:14,491 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=2:search=None:completed=None
+2026-09-16 20:10:14,498 - INFO - Response Status: 200
+2026-09-16 20:10:14,500 - INFO - HTTP Request: GET http://testserver/tasks/?page=1&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:10:14,604 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:14,965 - INFO - Response Status: 200
+2026-09-16 20:10:14,966 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:14,967 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:15,332 - INFO - Response Status: 200
+2026-09-16 20:10:15,333 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:15,336 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:15,358 - INFO - User1 created task 1
+2026-09-16 20:10:15,359 - INFO - Response Status: 201
+2026-09-16 20:10:15,361 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:15,364 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:15,380 - INFO - User1 created task 2
+2026-09-16 20:10:15,381 - INFO - Response Status: 201
+2026-09-16 20:10:15,383 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:15,385 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:15,397 - INFO - User1 created task 3
+2026-09-16 20:10:15,398 - INFO - Response Status: 201
+2026-09-16 20:10:15,399 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:15,401 - INFO - Request: GET http://testserver/tasks/?page=2&limit=2
+2026-09-16 20:10:15,407 - INFO - Cache MISS: tasks:user=1:role=user:page=2:limit=2:search=None:completed=None
+2026-09-16 20:10:15,412 - INFO - Response Status: 200
+2026-09-16 20:10:15,413 - INFO - HTTP Request: GET http://testserver/tasks/?page=2&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:10:15,504 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:15,850 - INFO - Response Status: 200
+2026-09-16 20:10:15,850 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:15,852 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:16,189 - INFO - Response Status: 200
+2026-09-16 20:10:16,190 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:16,192 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:16,211 - INFO - User1 created task 1
+2026-09-16 20:10:16,212 - INFO - Response Status: 201
+2026-09-16 20:10:16,213 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:16,215 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:10:16,227 - INFO - Response Status: 200
+2026-09-16 20:10:16,229 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:16,306 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:16,668 - INFO - Response Status: 200
+2026-09-16 20:10:16,669 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:16,671 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:17,013 - INFO - Response Status: 200
+2026-09-16 20:10:17,014 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:17,016 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:17,035 - INFO - User1 created task 1
+2026-09-16 20:10:17,036 - INFO - Response Status: 201
+2026-09-16 20:10:17,037 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:17,039 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:17,051 - INFO - Response Status: 200
+2026-09-16 20:10:17,053 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:17,150 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:17,500 - INFO - Response Status: 200
+2026-09-16 20:10:17,501 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:17,503 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:17,883 - INFO - Response Status: 200
+2026-09-16 20:10:17,885 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:17,888 - INFO - Request: DELETE http://testserver/tasks/99999
+2026-09-16 20:10:17,904 - INFO - Response Status: 404
+2026-09-16 20:10:17,905 - INFO - HTTP Request: DELETE http://testserver/tasks/99999 "HTTP/1.1 404 Not Found"
+2026-09-16 20:10:18,074 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:18,409 - INFO - Response Status: 200
+2026-09-16 20:10:18,410 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:18,411 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:18,748 - INFO - Response Status: 200
+2026-09-16 20:10:18,749 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:18,750 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:18,762 - INFO - User1 created task 1
+2026-09-16 20:10:18,763 - INFO - Response Status: 201
+2026-09-16 20:10:18,764 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:18,765 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:19,153 - INFO - Response Status: 200
+2026-09-16 20:10:19,155 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:19,156 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:19,476 - INFO - Response Status: 200
+2026-09-16 20:10:19,478 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:19,479 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:19,491 - INFO - User2 created task 2
+2026-09-16 20:10:19,492 - INFO - Response Status: 201
+2026-09-16 20:10:19,493 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:19,496 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:10:19,502 - INFO - Cache MISS: tasks:user=2:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:10:19,507 - INFO - Response Status: 200
+2026-09-16 20:10:19,508 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:10:36,907 - INFO - Request: GET http://testserver/
+2026-09-16 20:10:36,914 - INFO - Response Status: 200
+2026-09-16 20:10:36,918 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-16 20:10:36,998 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:37,435 - INFO - Response Status: 200
+2026-09-16 20:10:37,436 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:37,438 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:37,781 - INFO - Response Status: 200
+2026-09-16 20:10:37,782 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:37,784 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:37,820 - INFO - User1 created task 1
+2026-09-16 20:10:37,821 - INFO - Response Status: 201
+2026-09-16 20:10:37,822 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:37,890 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:38,268 - INFO - Response Status: 200
+2026-09-16 20:10:38,269 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:38,270 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:38,579 - INFO - Response Status: 200
+2026-09-16 20:10:38,580 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:38,581 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:38,597 - INFO - User1 created task 1
+2026-09-16 20:10:38,597 - INFO - Response Status: 201
+2026-09-16 20:10:38,598 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:38,600 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:10:38,606 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:10:38,616 - INFO - Response Status: 200
+2026-09-16 20:10:38,617 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:10:38,684 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:39,088 - INFO - Response Status: 200
+2026-09-16 20:10:39,090 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:39,092 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:39,437 - INFO - Response Status: 200
+2026-09-16 20:10:39,438 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:39,440 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:39,455 - INFO - User1 created task 1
+2026-09-16 20:10:39,455 - INFO - Response Status: 201
+2026-09-16 20:10:39,456 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:39,458 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:39,764 - INFO - Response Status: 200
+2026-09-16 20:10:39,764 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:39,766 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:40,079 - INFO - Response Status: 200
+2026-09-16 20:10:40,081 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:40,082 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:40,089 - INFO - Response Status: 403
+2026-09-16 20:10:40,090 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 403 Forbidden"
+2026-09-16 20:10:40,166 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:40,513 - INFO - Response Status: 200
+2026-09-16 20:10:40,514 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:40,515 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:40,828 - INFO - Response Status: 200
+2026-09-16 20:10:40,829 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:40,831 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:40,842 - INFO - User1 created task 1
+2026-09-16 20:10:40,843 - INFO - Response Status: 201
+2026-09-16 20:10:40,844 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:40,846 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:41,152 - INFO - Response Status: 200
+2026-09-16 20:10:41,153 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:41,159 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:41,492 - INFO - Response Status: 200
+2026-09-16 20:10:41,494 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:41,495 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:41,506 - INFO - Response Status: 200
+2026-09-16 20:10:41,507 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:41,580 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:41,933 - INFO - Response Status: 200
+2026-09-16 20:10:41,934 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:41,935 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:42,258 - INFO - Response Status: 200
+2026-09-16 20:10:42,260 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:42,261 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:42,276 - INFO - User1 created task 1
+2026-09-16 20:10:42,277 - INFO - Response Status: 201
+2026-09-16 20:10:42,278 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:42,280 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:10:42,292 - INFO - Response Status: 200
+2026-09-16 20:10:42,293 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:42,295 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:42,304 - INFO - User1 created task 2
+2026-09-16 20:10:42,305 - INFO - Response Status: 201
+2026-09-16 20:10:42,306 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:42,307 - INFO - Request: GET http://testserver/tasks/?completed=true
+2026-09-16 20:10:42,313 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=True
+2026-09-16 20:10:42,321 - INFO - Response Status: 200
+2026-09-16 20:10:42,322 - INFO - HTTP Request: GET http://testserver/tasks/?completed=true "HTTP/1.1 200 OK"
+2026-09-16 20:10:42,463 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:42,860 - INFO - Response Status: 200
+2026-09-16 20:10:42,863 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:42,865 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:43,192 - INFO - Response Status: 200
+2026-09-16 20:10:43,193 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:43,194 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:43,211 - INFO - User1 created task 1
+2026-09-16 20:10:43,213 - INFO - Response Status: 201
+2026-09-16 20:10:43,214 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:43,215 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:43,227 - INFO - User1 created task 2
+2026-09-16 20:10:43,228 - INFO - Response Status: 201
+2026-09-16 20:10:43,231 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:43,232 - INFO - Request: GET http://testserver/tasks/?search=FastAPI
+2026-09-16 20:10:43,239 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=FastAPI:completed=None
+2026-09-16 20:10:43,251 - INFO - Response Status: 200
+2026-09-16 20:10:43,252 - INFO - HTTP Request: GET http://testserver/tasks/?search=FastAPI "HTTP/1.1 200 OK"
+2026-09-16 20:10:43,324 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:43,702 - INFO - Response Status: 200
+2026-09-16 20:10:43,703 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:43,705 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:44,063 - INFO - Response Status: 200
+2026-09-16 20:10:44,064 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:44,065 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,096 - INFO - User1 created task 1
+2026-09-16 20:10:44,097 - INFO - Response Status: 201
+2026-09-16 20:10:44,099 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,101 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,117 - INFO - User1 created task 2
+2026-09-16 20:10:44,118 - INFO - Response Status: 201
+2026-09-16 20:10:44,119 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,120 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,133 - INFO - User1 created task 3
+2026-09-16 20:10:44,134 - INFO - Response Status: 201
+2026-09-16 20:10:44,135 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,137 - INFO - Request: GET http://testserver/tasks/?page=1&limit=2
+2026-09-16 20:10:44,143 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=2:search=None:completed=None
+2026-09-16 20:10:44,149 - INFO - Response Status: 200
+2026-09-16 20:10:44,150 - INFO - HTTP Request: GET http://testserver/tasks/?page=1&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:10:44,226 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:44,597 - INFO - Response Status: 200
+2026-09-16 20:10:44,599 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:44,601 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:44,947 - INFO - Response Status: 200
+2026-09-16 20:10:44,948 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:44,949 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,966 - INFO - User1 created task 1
+2026-09-16 20:10:44,967 - INFO - Response Status: 201
+2026-09-16 20:10:44,968 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,969 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,980 - INFO - User1 created task 2
+2026-09-16 20:10:44,980 - INFO - Response Status: 201
+2026-09-16 20:10:44,982 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,983 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:44,993 - INFO - User1 created task 3
+2026-09-16 20:10:44,994 - INFO - Response Status: 201
+2026-09-16 20:10:44,995 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:44,997 - INFO - Request: GET http://testserver/tasks/?page=2&limit=2
+2026-09-16 20:10:45,003 - INFO - Cache MISS: tasks:user=1:role=user:page=2:limit=2:search=None:completed=None
+2026-09-16 20:10:45,008 - INFO - Response Status: 200
+2026-09-16 20:10:45,009 - INFO - HTTP Request: GET http://testserver/tasks/?page=2&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:10:45,079 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:45,438 - INFO - Response Status: 200
+2026-09-16 20:10:45,439 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:45,441 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:45,775 - INFO - Response Status: 200
+2026-09-16 20:10:45,776 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:45,779 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:45,797 - INFO - User1 created task 1
+2026-09-16 20:10:45,798 - INFO - Response Status: 201
+2026-09-16 20:10:45,799 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:45,801 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:10:45,815 - INFO - Response Status: 200
+2026-09-16 20:10:45,816 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:45,902 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:46,227 - INFO - Response Status: 200
+2026-09-16 20:10:46,228 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:46,229 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:46,544 - INFO - Response Status: 200
+2026-09-16 20:10:46,545 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:46,547 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:46,560 - INFO - User1 created task 1
+2026-09-16 20:10:46,561 - INFO - Response Status: 201
+2026-09-16 20:10:46,562 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:46,564 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:10:46,571 - INFO - Response Status: 200
+2026-09-16 20:10:46,572 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:10:46,654 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:46,974 - INFO - Response Status: 200
+2026-09-16 20:10:46,976 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:46,977 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:47,307 - INFO - Response Status: 200
+2026-09-16 20:10:47,308 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:47,309 - INFO - Request: DELETE http://testserver/tasks/99999
+2026-09-16 20:10:47,320 - INFO - Response Status: 404
+2026-09-16 20:10:47,321 - INFO - HTTP Request: DELETE http://testserver/tasks/99999 "HTTP/1.1 404 Not Found"
+2026-09-16 20:10:47,390 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:47,698 - INFO - Response Status: 200
+2026-09-16 20:10:47,699 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:47,700 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:48,023 - INFO - Response Status: 200
+2026-09-16 20:10:48,025 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:48,026 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:48,042 - INFO - User1 created task 1
+2026-09-16 20:10:48,043 - INFO - Response Status: 201
+2026-09-16 20:10:48,044 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:48,046 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:10:48,366 - INFO - Response Status: 200
+2026-09-16 20:10:48,367 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:10:48,368 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:10:48,703 - INFO - Response Status: 200
+2026-09-16 20:10:48,704 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:10:48,705 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:10:48,715 - INFO - User2 created task 2
+2026-09-16 20:10:48,716 - INFO - Response Status: 201
+2026-09-16 20:10:48,717 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:10:48,718 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:10:48,722 - INFO - Cache MISS: tasks:user=2:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:10:48,726 - INFO - Response Status: 200
+2026-09-16 20:10:48,728 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:13:06,767 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:07,140 - INFO - Response Status: 200
+2026-09-16 20:13:07,141 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:07,202 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:07,545 - INFO - Response Status: 200
+2026-09-16 20:13:07,546 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:07,548 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:07,553 - INFO - Response Status: 400
+2026-09-16 20:13:07,554 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-16 20:13:07,621 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:08,013 - INFO - Response Status: 200
+2026-09-16 20:13:08,015 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:08,017 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:08,364 - INFO - Response Status: 200
+2026-09-16 20:13:08,366 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:08,445 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:08,838 - INFO - Response Status: 200
+2026-09-16 20:13:08,840 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:08,841 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:09,200 - INFO - Response Status: 400
+2026-09-16 20:13:09,201 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-16 20:13:09,356 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:09,809 - INFO - Response Status: 200
+2026-09-16 20:13:09,810 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:09,812 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:10,217 - INFO - Response Status: 200
+2026-09-16 20:13:10,218 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:10,221 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:10,282 - INFO - User1 created task 1
+2026-09-16 20:13:10,284 - INFO - Response Status: 201
+2026-09-16 20:13:10,288 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:10,413 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:10,416 - INFO - Response Status: 401
+2026-09-16 20:13:10,417 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:13:10,510 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:10,522 - INFO - Response Status: 401
+2026-09-16 20:13:10,524 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:13:10,650 - INFO - Request: POST http://testserver/auth/logout
+2026-09-16 20:13:10,652 - INFO - Response Status: 200
+2026-09-16 20:13:10,653 - INFO - HTTP Request: POST http://testserver/auth/logout "HTTP/1.1 200 OK"
+2026-09-16 20:13:34,816 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:35,262 - INFO - Response Status: 200
+2026-09-16 20:13:35,264 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:35,345 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:35,686 - INFO - Response Status: 200
+2026-09-16 20:13:35,688 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:35,690 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:35,695 - INFO - Response Status: 400
+2026-09-16 20:13:35,696 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-16 20:13:35,765 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:36,123 - INFO - Response Status: 200
+2026-09-16 20:13:36,124 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:36,126 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:36,446 - INFO - Response Status: 200
+2026-09-16 20:13:36,447 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:36,522 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:36,840 - INFO - Response Status: 200
+2026-09-16 20:13:36,842 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:36,844 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:37,192 - INFO - Response Status: 400
+2026-09-16 20:13:37,193 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-16 20:13:37,273 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:37,618 - INFO - Response Status: 200
+2026-09-16 20:13:37,619 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:37,621 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:38,001 - INFO - Response Status: 200
+2026-09-16 20:13:38,002 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:38,003 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:38,060 - INFO - User1 created task 1
+2026-09-16 20:13:38,061 - INFO - Response Status: 201
+2026-09-16 20:13:38,063 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:38,133 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:38,137 - INFO - Response Status: 401
+2026-09-16 20:13:38,138 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:13:38,216 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:38,221 - INFO - Response Status: 401
+2026-09-16 20:13:38,221 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:13:38,289 - INFO - Request: POST http://testserver/auth/logout
+2026-09-16 20:13:38,291 - INFO - Response Status: 200
+2026-09-16 20:13:38,291 - INFO - HTTP Request: POST http://testserver/auth/logout "HTTP/1.1 200 OK"
+2026-09-16 20:13:38,401 - INFO - Request: GET http://testserver/
+2026-09-16 20:13:38,405 - INFO - Response Status: 200
+2026-09-16 20:13:38,407 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-16 20:13:38,512 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:38,901 - INFO - Response Status: 200
+2026-09-16 20:13:38,902 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:38,903 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:39,280 - INFO - Response Status: 200
+2026-09-16 20:13:39,281 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:39,283 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:39,302 - INFO - User1 created task 1
+2026-09-16 20:13:39,302 - INFO - Response Status: 201
+2026-09-16 20:13:39,304 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:39,397 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:39,744 - INFO - Response Status: 200
+2026-09-16 20:13:39,745 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:39,747 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:40,092 - INFO - Response Status: 200
+2026-09-16 20:13:40,093 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:40,094 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:40,113 - INFO - User1 created task 1
+2026-09-16 20:13:40,114 - INFO - Response Status: 201
+2026-09-16 20:13:40,115 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:40,117 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:13:40,126 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:13:40,141 - INFO - Response Status: 200
+2026-09-16 20:13:40,142 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:13:40,217 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:40,576 - INFO - Response Status: 200
+2026-09-16 20:13:40,577 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:40,579 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:40,964 - INFO - Response Status: 200
+2026-09-16 20:13:40,966 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:40,968 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:40,995 - INFO - User1 created task 1
+2026-09-16 20:13:40,996 - INFO - Response Status: 201
+2026-09-16 20:13:40,998 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:41,000 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:41,403 - INFO - Response Status: 200
+2026-09-16 20:13:41,405 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:41,407 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:41,758 - INFO - Response Status: 200
+2026-09-16 20:13:41,760 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:41,761 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:13:41,768 - INFO - Response Status: 403
+2026-09-16 20:13:41,769 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 403 Forbidden"
+2026-09-16 20:13:41,843 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:42,172 - INFO - Response Status: 200
+2026-09-16 20:13:42,173 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:42,175 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:42,531 - INFO - Response Status: 200
+2026-09-16 20:13:42,533 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:42,534 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:42,549 - INFO - User1 created task 1
+2026-09-16 20:13:42,550 - INFO - Response Status: 201
+2026-09-16 20:13:42,551 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:42,552 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:42,911 - INFO - Response Status: 200
+2026-09-16 20:13:42,912 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:42,919 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:43,241 - INFO - Response Status: 200
+2026-09-16 20:13:43,242 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:43,244 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:13:43,257 - INFO - Response Status: 200
+2026-09-16 20:13:43,259 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:13:43,339 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:43,697 - INFO - Response Status: 200
+2026-09-16 20:13:43,698 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:43,700 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:44,092 - INFO - Response Status: 200
+2026-09-16 20:13:44,093 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:44,095 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:44,110 - INFO - User1 created task 1
+2026-09-16 20:13:44,111 - INFO - Response Status: 201
+2026-09-16 20:13:44,113 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:44,114 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:13:44,130 - INFO - Response Status: 200
+2026-09-16 20:13:44,131 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:13:44,133 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:44,143 - INFO - User1 created task 2
+2026-09-16 20:13:44,144 - INFO - Response Status: 201
+2026-09-16 20:13:44,145 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:44,146 - INFO - Request: GET http://testserver/tasks/?completed=true
+2026-09-16 20:13:44,152 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=True
+2026-09-16 20:13:44,161 - INFO - Response Status: 200
+2026-09-16 20:13:44,162 - INFO - HTTP Request: GET http://testserver/tasks/?completed=true "HTTP/1.1 200 OK"
+2026-09-16 20:13:44,246 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:44,600 - INFO - Response Status: 200
+2026-09-16 20:13:44,601 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:44,603 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:45,003 - INFO - Response Status: 200
+2026-09-16 20:13:45,003 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:45,005 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:45,027 - INFO - User1 created task 1
+2026-09-16 20:13:45,028 - INFO - Response Status: 201
+2026-09-16 20:13:45,029 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:45,031 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:45,045 - INFO - User1 created task 2
+2026-09-16 20:13:45,046 - INFO - Response Status: 201
+2026-09-16 20:13:45,047 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:45,049 - INFO - Request: GET http://testserver/tasks/?search=FastAPI
+2026-09-16 20:13:45,056 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=FastAPI:completed=None
+2026-09-16 20:13:45,066 - INFO - Response Status: 200
+2026-09-16 20:13:45,067 - INFO - HTTP Request: GET http://testserver/tasks/?search=FastAPI "HTTP/1.1 200 OK"
+2026-09-16 20:13:45,187 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:45,527 - INFO - Response Status: 200
+2026-09-16 20:13:45,528 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:45,530 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:45,908 - INFO - Response Status: 200
+2026-09-16 20:13:45,909 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:45,910 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:45,924 - INFO - User1 created task 1
+2026-09-16 20:13:45,925 - INFO - Response Status: 201
+2026-09-16 20:13:45,926 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:45,928 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:45,940 - INFO - User1 created task 2
+2026-09-16 20:13:45,941 - INFO - Response Status: 201
+2026-09-16 20:13:45,942 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:45,943 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:45,952 - INFO - User1 created task 3
+2026-09-16 20:13:45,953 - INFO - Response Status: 201
+2026-09-16 20:13:45,953 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:45,955 - INFO - Request: GET http://testserver/tasks/?page=1&limit=2
+2026-09-16 20:13:45,962 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=2:search=None:completed=None
+2026-09-16 20:13:45,967 - INFO - Response Status: 200
+2026-09-16 20:13:45,968 - INFO - HTTP Request: GET http://testserver/tasks/?page=1&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:13:46,044 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:46,385 - INFO - Response Status: 200
+2026-09-16 20:13:46,386 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:46,388 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:46,719 - INFO - Response Status: 200
+2026-09-16 20:13:46,721 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:46,723 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:46,743 - INFO - User1 created task 1
+2026-09-16 20:13:46,744 - INFO - Response Status: 201
+2026-09-16 20:13:46,745 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:46,747 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:46,761 - INFO - User1 created task 2
+2026-09-16 20:13:46,763 - INFO - Response Status: 201
+2026-09-16 20:13:46,764 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:46,766 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:46,781 - INFO - User1 created task 3
+2026-09-16 20:13:46,783 - INFO - Response Status: 201
+2026-09-16 20:13:46,784 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:46,787 - INFO - Request: GET http://testserver/tasks/?page=2&limit=2
+2026-09-16 20:13:46,798 - INFO - Cache MISS: tasks:user=1:role=user:page=2:limit=2:search=None:completed=None
+2026-09-16 20:13:46,808 - INFO - Response Status: 200
+2026-09-16 20:13:46,810 - INFO - HTTP Request: GET http://testserver/tasks/?page=2&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:13:46,927 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:47,274 - INFO - Response Status: 200
+2026-09-16 20:13:47,275 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:47,277 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:47,634 - INFO - Response Status: 200
+2026-09-16 20:13:47,635 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:47,637 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:47,653 - INFO - User1 created task 1
+2026-09-16 20:13:47,653 - INFO - Response Status: 201
+2026-09-16 20:13:47,655 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:47,657 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:13:47,668 - INFO - Response Status: 200
+2026-09-16 20:13:47,669 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:13:47,754 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:48,127 - INFO - Response Status: 200
+2026-09-16 20:13:48,128 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:48,130 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:48,524 - INFO - Response Status: 200
+2026-09-16 20:13:48,526 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:48,528 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:48,543 - INFO - User1 created task 1
+2026-09-16 20:13:48,544 - INFO - Response Status: 201
+2026-09-16 20:13:48,545 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:48,546 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:13:48,553 - INFO - Response Status: 200
+2026-09-16 20:13:48,555 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:13:48,628 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:48,966 - INFO - Response Status: 200
+2026-09-16 20:13:48,968 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:48,970 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:49,337 - INFO - Response Status: 200
+2026-09-16 20:13:49,339 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:49,340 - INFO - Request: DELETE http://testserver/tasks/99999
+2026-09-16 20:13:49,349 - INFO - Response Status: 404
+2026-09-16 20:13:49,350 - INFO - HTTP Request: DELETE http://testserver/tasks/99999 "HTTP/1.1 404 Not Found"
+2026-09-16 20:13:49,511 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:49,896 - INFO - Response Status: 200
+2026-09-16 20:13:49,897 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:49,898 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:50,238 - INFO - Response Status: 200
+2026-09-16 20:13:50,240 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:50,241 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:50,255 - INFO - User1 created task 1
+2026-09-16 20:13:50,256 - INFO - Response Status: 201
+2026-09-16 20:13:50,257 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:50,259 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:13:50,625 - INFO - Response Status: 200
+2026-09-16 20:13:50,626 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:13:50,627 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:13:50,973 - INFO - Response Status: 200
+2026-09-16 20:13:50,974 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:13:50,975 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:13:50,985 - INFO - User2 created task 2
+2026-09-16 20:13:50,986 - INFO - Response Status: 201
+2026-09-16 20:13:50,987 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:13:50,989 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:13:50,994 - INFO - Cache MISS: tasks:user=2:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:13:50,999 - INFO - Response Status: 200
+2026-09-16 20:13:51,000 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:14:10,907 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:11,351 - INFO - Response Status: 200
+2026-09-16 20:14:11,352 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:11,429 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:11,794 - INFO - Response Status: 200
+2026-09-16 20:14:11,796 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:11,797 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:11,801 - INFO - Response Status: 400
+2026-09-16 20:14:11,802 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 400 Bad Request"
+2026-09-16 20:14:11,880 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:12,196 - INFO - Response Status: 200
+2026-09-16 20:14:12,197 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:12,199 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:12,546 - INFO - Response Status: 200
+2026-09-16 20:14:12,547 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:12,618 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:12,954 - INFO - Response Status: 200
+2026-09-16 20:14:12,955 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:12,957 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:13,328 - INFO - Response Status: 400
+2026-09-16 20:14:13,329 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 400 Bad Request"
+2026-09-16 20:14:13,412 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:13,747 - INFO - Response Status: 200
+2026-09-16 20:14:13,749 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:13,750 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:14,143 - INFO - Response Status: 200
+2026-09-16 20:14:14,144 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:14,146 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:14,191 - INFO - User1 created task 1
+2026-09-16 20:14:14,192 - INFO - Response Status: 201
+2026-09-16 20:14:14,193 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:14,269 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:14,273 - INFO - Response Status: 401
+2026-09-16 20:14:14,275 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:14:14,348 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:14,352 - INFO - Response Status: 401
+2026-09-16 20:14:14,353 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 401 Unauthorized"
+2026-09-16 20:14:14,424 - INFO - Request: POST http://testserver/auth/logout
+2026-09-16 20:14:14,428 - INFO - Response Status: 200
+2026-09-16 20:14:14,429 - INFO - HTTP Request: POST http://testserver/auth/logout "HTTP/1.1 200 OK"
+2026-09-16 20:14:14,572 - INFO - Request: GET http://testserver/
+2026-09-16 20:14:14,586 - INFO - Response Status: 200
+2026-09-16 20:14:14,599 - INFO - HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-09-16 20:14:14,712 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:15,097 - INFO - Response Status: 200
+2026-09-16 20:14:15,098 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:15,100 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:15,428 - INFO - Response Status: 200
+2026-09-16 20:14:15,429 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:15,431 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:15,454 - INFO - User1 created task 1
+2026-09-16 20:14:15,457 - INFO - Response Status: 201
+2026-09-16 20:14:15,460 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:15,548 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:15,934 - INFO - Response Status: 200
+2026-09-16 20:14:15,935 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:15,936 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:16,265 - INFO - Response Status: 200
+2026-09-16 20:14:16,267 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:16,268 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:16,284 - INFO - User1 created task 1
+2026-09-16 20:14:16,285 - INFO - Response Status: 201
+2026-09-16 20:14:16,286 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:16,288 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:14:16,298 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:14:16,313 - INFO - Response Status: 200
+2026-09-16 20:14:16,315 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"
+2026-09-16 20:14:16,445 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:16,795 - INFO - Response Status: 200
+2026-09-16 20:14:16,797 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:16,798 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:17,105 - INFO - Response Status: 200
+2026-09-16 20:14:17,107 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:17,109 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:17,128 - INFO - User1 created task 1
+2026-09-16 20:14:17,129 - INFO - Response Status: 201
+2026-09-16 20:14:17,130 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:17,132 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:17,519 - INFO - Response Status: 200
+2026-09-16 20:14:17,520 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:17,521 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:17,864 - INFO - Response Status: 200
+2026-09-16 20:14:17,865 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:17,867 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:14:17,874 - INFO - Response Status: 403
+2026-09-16 20:14:17,875 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 403 Forbidden"
+2026-09-16 20:14:17,958 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:18,304 - INFO - Response Status: 200
+2026-09-16 20:14:18,305 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:18,307 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:18,648 - INFO - Response Status: 200
+2026-09-16 20:14:18,649 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:18,650 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:18,667 - INFO - User1 created task 1
+2026-09-16 20:14:18,668 - INFO - Response Status: 201
+2026-09-16 20:14:18,669 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:18,672 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:19,017 - INFO - Response Status: 200
+2026-09-16 20:14:19,018 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:19,025 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:19,419 - INFO - Response Status: 200
+2026-09-16 20:14:19,421 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:19,423 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:14:19,436 - INFO - Response Status: 200
+2026-09-16 20:14:19,437 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:14:19,510 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:19,862 - INFO - Response Status: 200
+2026-09-16 20:14:19,863 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:19,864 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:20,216 - INFO - Response Status: 200
+2026-09-16 20:14:20,217 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:20,219 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:20,234 - INFO - User1 created task 1
+2026-09-16 20:14:20,234 - INFO - Response Status: 201
+2026-09-16 20:14:20,235 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:20,236 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:14:20,272 - INFO - Response Status: 200
+2026-09-16 20:14:20,274 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:14:20,277 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:20,292 - INFO - User1 created task 2
+2026-09-16 20:14:20,294 - INFO - Response Status: 201
+2026-09-16 20:14:20,295 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:20,298 - INFO - Request: GET http://testserver/tasks/?completed=true
+2026-09-16 20:14:20,306 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=None:completed=True
+2026-09-16 20:14:20,318 - INFO - Response Status: 200
+2026-09-16 20:14:20,320 - INFO - HTTP Request: GET http://testserver/tasks/?completed=true "HTTP/1.1 200 OK"
+2026-09-16 20:14:20,433 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:20,823 - INFO - Response Status: 200
+2026-09-16 20:14:20,825 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:20,826 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:21,141 - INFO - Response Status: 200
+2026-09-16 20:14:21,142 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:21,144 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:21,162 - INFO - User1 created task 1
+2026-09-16 20:14:21,163 - INFO - Response Status: 201
+2026-09-16 20:14:21,164 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:21,166 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:21,177 - INFO - User1 created task 2
+2026-09-16 20:14:21,178 - INFO - Response Status: 201
+2026-09-16 20:14:21,179 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:21,180 - INFO - Request: GET http://testserver/tasks/?search=FastAPI
+2026-09-16 20:14:21,185 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=10:search=FastAPI:completed=None
+2026-09-16 20:14:21,194 - INFO - Response Status: 200
+2026-09-16 20:14:21,195 - INFO - HTTP Request: GET http://testserver/tasks/?search=FastAPI "HTTP/1.1 200 OK"
+2026-09-16 20:14:21,268 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:21,610 - INFO - Response Status: 200
+2026-09-16 20:14:21,611 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:21,612 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:21,983 - INFO - Response Status: 200
+2026-09-16 20:14:21,984 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:21,986 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,003 - INFO - User1 created task 1
+2026-09-16 20:14:22,004 - INFO - Response Status: 201
+2026-09-16 20:14:22,005 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,006 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,017 - INFO - User1 created task 2
+2026-09-16 20:14:22,018 - INFO - Response Status: 201
+2026-09-16 20:14:22,019 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,021 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,032 - INFO - User1 created task 3
+2026-09-16 20:14:22,032 - INFO - Response Status: 201
+2026-09-16 20:14:22,034 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,035 - INFO - Request: GET http://testserver/tasks/?page=1&limit=2
+2026-09-16 20:14:22,042 - INFO - Cache MISS: tasks:user=1:role=user:page=1:limit=2:search=None:completed=None
+2026-09-16 20:14:22,046 - INFO - Response Status: 200
+2026-09-16 20:14:22,047 - INFO - HTTP Request: GET http://testserver/tasks/?page=1&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:14:22,130 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:22,503 - INFO - Response Status: 200
+2026-09-16 20:14:22,504 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:22,506 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:22,825 - INFO - Response Status: 200
+2026-09-16 20:14:22,826 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:22,828 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,848 - INFO - User1 created task 1
+2026-09-16 20:14:22,849 - INFO - Response Status: 201
+2026-09-16 20:14:22,850 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,852 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,865 - INFO - User1 created task 2
+2026-09-16 20:14:22,866 - INFO - Response Status: 201
+2026-09-16 20:14:22,867 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,869 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:22,882 - INFO - User1 created task 3
+2026-09-16 20:14:22,884 - INFO - Response Status: 201
+2026-09-16 20:14:22,885 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:22,888 - INFO - Request: GET http://testserver/tasks/?page=2&limit=2
+2026-09-16 20:14:22,898 - INFO - Cache MISS: tasks:user=1:role=user:page=2:limit=2:search=None:completed=None
+2026-09-16 20:14:22,906 - INFO - Response Status: 200
+2026-09-16 20:14:22,908 - INFO - HTTP Request: GET http://testserver/tasks/?page=2&limit=2 "HTTP/1.1 200 OK"
+2026-09-16 20:14:22,985 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:23,331 - INFO - Response Status: 200
+2026-09-16 20:14:23,332 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:23,333 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:23,715 - INFO - Response Status: 200
+2026-09-16 20:14:23,717 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:23,718 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:23,739 - INFO - User1 created task 1
+2026-09-16 20:14:23,743 - INFO - Response Status: 201
+2026-09-16 20:14:23,744 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:23,746 - INFO - Request: PUT http://testserver/tasks/1
+2026-09-16 20:14:23,761 - INFO - Response Status: 200
+2026-09-16 20:14:23,761 - INFO - HTTP Request: PUT http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:14:23,824 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:24,151 - INFO - Response Status: 200
+2026-09-16 20:14:24,152 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:24,154 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:24,519 - INFO - Response Status: 200
+2026-09-16 20:14:24,520 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:24,522 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:24,572 - INFO - User1 created task 1
+2026-09-16 20:14:24,574 - INFO - Response Status: 201
+2026-09-16 20:14:24,578 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:24,581 - INFO - Request: DELETE http://testserver/tasks/1
+2026-09-16 20:14:24,596 - INFO - Response Status: 200
+2026-09-16 20:14:24,597 - INFO - HTTP Request: DELETE http://testserver/tasks/1 "HTTP/1.1 200 OK"
+2026-09-16 20:14:24,682 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:25,018 - INFO - Response Status: 200
+2026-09-16 20:14:25,019 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:25,021 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:25,376 - INFO - Response Status: 200
+2026-09-16 20:14:25,377 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:25,378 - INFO - Request: DELETE http://testserver/tasks/99999
+2026-09-16 20:14:25,386 - INFO - Response Status: 404
+2026-09-16 20:14:25,387 - INFO - HTTP Request: DELETE http://testserver/tasks/99999 "HTTP/1.1 404 Not Found"
+2026-09-16 20:14:25,456 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:25,818 - INFO - Response Status: 200
+2026-09-16 20:14:25,819 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:25,821 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:26,160 - INFO - Response Status: 200
+2026-09-16 20:14:26,161 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:26,162 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:26,179 - INFO - User1 created task 1
+2026-09-16 20:14:26,180 - INFO - Response Status: 201
+2026-09-16 20:14:26,181 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:26,183 - INFO - Request: POST http://testserver/auth/register
+2026-09-16 20:14:26,525 - INFO - Response Status: 200
+2026-09-16 20:14:26,526 - INFO - HTTP Request: POST http://testserver/auth/register "HTTP/1.1 200 OK"
+2026-09-16 20:14:26,528 - INFO - Request: POST http://testserver/auth/login
+2026-09-16 20:14:26,875 - INFO - Response Status: 200
+2026-09-16 20:14:26,876 - INFO - HTTP Request: POST http://testserver/auth/login "HTTP/1.1 200 OK"
+2026-09-16 20:14:26,878 - INFO - Request: POST http://testserver/tasks/
+2026-09-16 20:14:26,891 - INFO - User2 created task 2
+2026-09-16 20:14:26,892 - INFO - Response Status: 201
+2026-09-16 20:14:26,893 - INFO - HTTP Request: POST http://testserver/tasks/ "HTTP/1.1 201 Created"
+2026-09-16 20:14:26,894 - INFO - Request: GET http://testserver/tasks/
+2026-09-16 20:14:26,899 - INFO - Cache MISS: tasks:user=2:role=user:page=1:limit=10:search=None:completed=None
+2026-09-16 20:14:26,904 - INFO - Response Status: 200
+2026-09-16 20:14:26,905 - INFO - HTTP Request: GET http://testserver/tasks/ "HTTP/1.1 200 OK"

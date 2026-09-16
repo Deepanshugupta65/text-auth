@@ -1,7 +1,4 @@
-from tests.conftest import client
-
-
-def test_register_user(db):
+def test_register_user(client):
 
     response = client.post(
         "/auth/register",
@@ -19,7 +16,7 @@ def test_register_user(db):
     assert "user_id" in data
 
 
-def test_duplicate_email(db):
+def test_duplicate_email(client):
 
     # First create the user
     client.post(
@@ -46,7 +43,7 @@ def test_duplicate_email(db):
     assert data["detail"] == "Email already registered"
 
 
-def test_login_user(db):
+def test_login_user(client):
 
     # Create user first
     client.post(
@@ -76,7 +73,7 @@ def test_login_user(db):
     assert data["user"]["role"] == "user"
 
 
-def test_login_wrong_password(db):
+def test_login_wrong_password(client):
 
     # Create user
     client.post(
@@ -103,7 +100,7 @@ def test_login_wrong_password(db):
     assert data["detail"] == "Invalid email or password"
 
 
-def test_jwt_protected_task(db):
+def test_jwt_protected_task(client):
 
     # 1. Create a user
     client.post(
@@ -146,8 +143,9 @@ def test_jwt_protected_task(db):
 
     assert data["title"] == "Learn JWT"
 
-# No JWT → user cannot create a task. 
-def test_create_task_without_token(db):
+
+# No JWT → user cannot create a task.
+def test_create_task_without_token(client):
 
     response = client.post(
         "/tasks/",
@@ -157,7 +155,9 @@ def test_create_task_without_token(db):
     )
 
     assert response.status_code in [401, 403]
-def test_create_task_with_invalid_token(db):
+
+
+def test_create_task_with_invalid_token(client):
 
     response = client.post(
         "/tasks/",
@@ -170,9 +170,9 @@ def test_create_task_with_invalid_token(db):
     )
 
     assert response.status_code in [401, 403]
-    
-        #logout 
-def test_logout(db):
+
+
+def test_logout(client):
 
     response = client.post("/auth/logout")
 

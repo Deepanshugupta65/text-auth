@@ -1,7 +1,7 @@
 import os
 import redis
 
-REDIS_HOST = os.getenv("REDIS_HOST", "redis")
+REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 
 redis_client = redis.Redis(
     host=REDIS_HOST,

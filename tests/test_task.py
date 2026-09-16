@@ -1,16 +1,18 @@
-from tests.conftest import client
 from app.model.user import User
 
-def test_create_task(db):
+
+def test_create_task(client):
 
     # Create a user
-    client.post(
+    register_response = client.post(
         "/auth/register",
         json={
             "email": "taskuser@example.com",
             "password": "Test1234"
         }
     )
+
+    assert register_response.status_code == 200
 
     # Login
     login_response = client.post(
@@ -45,17 +47,22 @@ def test_create_task(db):
     assert data["owner_id"] == 1
 
 
-#  get task 
-def test_get_tasks(db):
+# ---------------------------------------------------------
+# GET TASKS
+# ---------------------------------------------------------
+
+def test_get_tasks(client):
 
     # 1. Create a user
-    client.post(
+    register_response = client.post(
         "/auth/register",
         json={
             "email": "gettask@example.com",
             "password": "Test1234"
         }
     )
+
+    assert register_response.status_code == 200
 
     # 2. Login
     login_response = client.post(
@@ -71,7 +78,7 @@ def test_get_tasks(db):
     # 3. Get JWT token
     token = login_response.json()["access_token"]
 
-    # 4. Create a task first
+    # 4. Create a task
     create_response = client.post(
         "/tasks/",
         json={
@@ -104,10 +111,11 @@ def test_get_tasks(db):
     assert data["data"][0]["title"] == "My first task"
 
 
+# ---------------------------------------------------------
+# USER AUTHORIZATION
+# ---------------------------------------------------------
 
-#  authorization between two user 
-
-def test_user_cannot_delete_another_users_task(db):
+def test_user_cannot_delete_another_users_task(client):
 
     # 1. Create User A
     client.post(
@@ -126,6 +134,8 @@ def test_user_cannot_delete_another_users_task(db):
             "password": "Test1234"
         }
     )
+
+    assert login_a.status_code == 200
 
     token_a = login_a.json()["access_token"]
 
@@ -162,6 +172,8 @@ def test_user_cannot_delete_another_users_task(db):
         }
     )
 
+    assert login_b.status_code == 200
+
     token_b = login_b.json()["access_token"]
 
     # 6. User B tries to delete User A's task
@@ -178,13 +190,13 @@ def test_user_cannot_delete_another_users_task(db):
     data = response.json()
 
     assert data["detail"] == "Not authorized"
-    
 
 
-#   Admin can delete another user's task
+# ---------------------------------------------------------
+# ADMIN AUTHORIZATION
+# ---------------------------------------------------------
 
-
-def test_admin_can_delete_other_users_task(db):
+def test_admin_can_delete_other_users_task(client, db):
 
     # 1. Create normal user
     client.post(
@@ -203,6 +215,8 @@ def test_admin_can_delete_other_users_task(db):
             "password": "Test1234"
         }
     )
+
+    assert user_login.status_code == 200
 
     user_token = user_login.json()["access_token"]
 
@@ -235,6 +249,8 @@ def test_admin_can_delete_other_users_task(db):
         User.email == "admin@example.com"
     ).first()
 
+    assert admin_user is not None
+
     admin_user.role = "admin"
     db.commit()
 
@@ -246,6 +262,8 @@ def test_admin_can_delete_other_users_task(db):
             "password": "Admin1234"
         }
     )
+
+    assert admin_login.status_code == 200
 
     admin_token = admin_login.json()["access_token"]
 
@@ -264,9 +282,12 @@ def test_admin_can_delete_other_users_task(db):
 
     assert data["message"] == "Task deleted successfully"
 
-#   filter ation
 
-def test_filter_completed_tasks(db):
+# ---------------------------------------------------------
+# FILTER COMPLETED TASKS
+# ---------------------------------------------------------
+
+def test_filter_completed_tasks(client):
 
     # 1. Create user
     client.post(
@@ -285,6 +306,8 @@ def test_filter_completed_tasks(db):
             "password": "Test1234"
         }
     )
+
+    assert login_response.status_code == 200
 
     token = login_response.json()["access_token"]
 
@@ -341,17 +364,13 @@ def test_filter_completed_tasks(db):
     assert len(data["data"]) == 1
     assert data["data"][0]["title"] == "Completed task"
     assert data["data"][0]["completed"] is True
-    
-
-# from tests.conftest import client
-# from app.model.user import User
 
 
 # ---------------------------------------------------------
-# 1. SEARCH TEST
+# SEARCH TASKS
 # ---------------------------------------------------------
 
-def test_search_tasks(db):
+def test_search_tasks(client):
 
     # Create user
     client.post(
@@ -371,6 +390,8 @@ def test_search_tasks(db):
         }
     )
 
+    assert login_response.status_code == 200
+
     token = login_response.json()["access_token"]
 
     headers = {
@@ -378,7 +399,7 @@ def test_search_tasks(db):
     }
 
     # Create task 1
-    client.post(
+    response1 = client.post(
         "/tasks/",
         json={
             "title": "Learn FastAPI"
@@ -386,14 +407,18 @@ def test_search_tasks(db):
         headers=headers
     )
 
+    assert response1.status_code == 201
+
     # Create task 2
-    client.post(
+    response2 = client.post(
         "/tasks/",
         json={
             "title": "Learn Docker"
         },
         headers=headers
     )
+
+    assert response2.status_code == 201
 
     # Search FastAPI
     response = client.get(
@@ -411,10 +436,10 @@ def test_search_tasks(db):
 
 
 # ---------------------------------------------------------
-# 2. PAGINATION TEST
+# PAGINATION
 # ---------------------------------------------------------
 
-def test_task_pagination(db):
+def test_task_pagination(client):
 
     # Create user
     client.post(
@@ -434,6 +459,8 @@ def test_task_pagination(db):
         }
     )
 
+    assert login_response.status_code == 200
+
     token = login_response.json()["access_token"]
 
     headers = {
@@ -442,13 +469,15 @@ def test_task_pagination(db):
 
     # Create 3 tasks
     for i in range(1, 4):
-        client.post(
+        response = client.post(
             "/tasks/",
             json={
                 "title": f"Task {i}"
             },
             headers=headers
         )
+
+        assert response.status_code == 201
 
     # Ask for 2 tasks
     response = client.get(
@@ -467,10 +496,10 @@ def test_task_pagination(db):
 
 
 # ---------------------------------------------------------
-# 3. SECOND PAGE PAGINATION TEST
+# SECOND PAGE PAGINATION
 # ---------------------------------------------------------
 
-def test_second_page(db):
+def test_second_page(client):
 
     # Create user
     client.post(
@@ -490,6 +519,8 @@ def test_second_page(db):
         }
     )
 
+    assert login_response.status_code == 200
+
     token = login_response.json()["access_token"]
 
     headers = {
@@ -498,13 +529,15 @@ def test_second_page(db):
 
     # Create 3 tasks
     for i in range(1, 4):
-        client.post(
+        response = client.post(
             "/tasks/",
             json={
                 "title": f"Task {i}"
             },
             headers=headers
         )
+
+        assert response.status_code == 201
 
     # Get page 2 with limit 2
     response = client.get(
@@ -523,10 +556,10 @@ def test_second_page(db):
 
 
 # ---------------------------------------------------------
-# 4. UPDATE TASK
+# UPDATE TASK
 # ---------------------------------------------------------
 
-def test_update_task(db):
+def test_update_task(client):
 
     # Create user
     client.post(
@@ -545,6 +578,8 @@ def test_update_task(db):
             "password": "Test1234"
         }
     )
+
+    assert login_response.status_code == 200
 
     token = login_response.json()["access_token"]
 
@@ -584,10 +619,10 @@ def test_update_task(db):
 
 
 # ---------------------------------------------------------
-# 5. DELETE TASK
+# DELETE TASK
 # ---------------------------------------------------------
 
-def test_delete_task(db):
+def test_delete_task(client):
 
     # Create user
     client.post(
@@ -606,6 +641,8 @@ def test_delete_task(db):
             "password": "Test1234"
         }
     )
+
+    assert login_response.status_code == 200
 
     token = login_response.json()["access_token"]
 
@@ -640,10 +677,10 @@ def test_delete_task(db):
 
 
 # ---------------------------------------------------------
-# 6. DELETE NON-EXISTING TASK
+# DELETE NON-EXISTING TASK
 # ---------------------------------------------------------
 
-def test_delete_non_existing_task(db):
+def test_delete_non_existing_task(client):
 
     # Create user
     client.post(
@@ -662,6 +699,8 @@ def test_delete_non_existing_task(db):
             "password": "Test1234"
         }
     )
+
+    assert login_response.status_code == 200
 
     token = login_response.json()["access_token"]
 
@@ -683,10 +722,10 @@ def test_delete_non_existing_task(db):
 
 
 # ---------------------------------------------------------
-# 7. USER CAN GET ONLY THEIR OWN TASKS
+# USER CAN GET ONLY THEIR OWN TASKS
 # ---------------------------------------------------------
 
-def test_user_only_gets_own_tasks(db):
+def test_user_only_gets_own_tasks(client):
 
     # -------------------------
     # Create User A
@@ -708,6 +747,8 @@ def test_user_only_gets_own_tasks(db):
         }
     )
 
+    assert login_a.status_code == 200
+
     token_a = login_a.json()["access_token"]
 
     headers_a = {
@@ -715,13 +756,15 @@ def test_user_only_gets_own_tasks(db):
     }
 
     # User A creates task
-    client.post(
+    response_a = client.post(
         "/tasks/",
         json={
             "title": "User A Task"
         },
         headers=headers_a
     )
+
+    assert response_a.status_code == 201
 
     # -------------------------
     # Create User B
@@ -743,6 +786,8 @@ def test_user_only_gets_own_tasks(db):
         }
     )
 
+    assert login_b.status_code == 200
+
     token_b = login_b.json()["access_token"]
 
     headers_b = {
@@ -750,13 +795,15 @@ def test_user_only_gets_own_tasks(db):
     }
 
     # User B creates task
-    client.post(
+    response_b = client.post(
         "/tasks/",
         json={
             "title": "User B Task"
         },
         headers=headers_b
     )
+
+    assert response_b.status_code == 201
 
     # User B gets tasks
     response = client.get(
