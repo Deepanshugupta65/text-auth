@@ -1,21 +1,41 @@
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.db.base import Base
 from app.db.session import engine
 from app.model.task import Task
 from app.api.task import router as task_router
 from app.model.user import User
-# auth
+
+# Auth
 from app.api import auth
-# custome loggwe
-from app.core.logger import logger 
-# redis
+
+# Custom logger
+from app.core.logger import logger
+
+# Redis
 from app.core.redis import redis_client
+
+
 app = FastAPI()
 
-# ✅ Middleware for logging requests
+
+# CORS Middleware - Allow React frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# Middleware for logging requests
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
-
     logger.info(f"Request: {request.method} {request.url}")
 
     response = await call_next(request)
@@ -24,15 +44,19 @@ async def log_requests(request: Request, call_next):
 
     return response
 
-# router 
+
+# Routers
 app.include_router(task_router)
 app.include_router(auth.router)
 
+
+# Create database tables
 Base.metadata.create_all(bind=engine)
+
 
 @app.get("/")
 def home():
-    return {"message":"API running"}
+    return {"message": "API running"}
 
 
 @app.get("/redis-test")
