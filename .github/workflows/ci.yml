@@ -84,7 +84,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -94,10 +93,12 @@ jobs:
             ghcr.io/deepanshugupta65/text-auth:latest
             ghcr.io/deepanshugupta65/text-auth:${{ github.sha }}
 
-
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
+    concurrency:
+      group: textauth-backend-production
+      cancel-in-progress: false
 
     steps:
       - name: Configure verified SSH
@@ -125,16 +126,73 @@ jobs:
 
           chmod 600 ~/.ssh/known_hosts
 
-      - name: Deploy backend to EC2
+      - name: Deploy backend with automatic rollback
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
+          IMAGE_TAG: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes \
             -i ~/.ssh/id_ed25519 "ubuntu@$EC2_HOST" \
-            'set -e
-             cd /home/ubuntu
-             docker compose -f docker-compose.prod.yml pull api
-             docker compose -f docker-compose.prod.yml up -d api
-             sleep 5
-             curl -fsS http://127.0.0.1:8000/docs > /dev/null
-             echo "Backend deployment successful"'
+            "bash -s -- '$IMAGE_TAG' '$RUN_ID'" <<'REMOTE'
+          set -euo pipefail
+          cd /home/ubuntu
+
+          NEW_TAG="$1"
+          RUN_ID="$2"
+          IMAGE="ghcr.io/deepanshugupta65/text-auth"
+          COMPOSE="docker-compose.prod.yml"
+
+          # Remember the previous running image
+          PREVIOUS_IMAGE=$(docker inspect \
+            --format '{{.Image}}' textauth-api)
+
+          ROLLBACK_TAG="rollback-${RUN_ID}"
+          docker tag "$PREVIOUS_IMAGE" "$IMAGE:$ROLLBACK_TAG"
+
+          echo "Previous image saved: $ROLLBACK_TAG"
+          echo "Deploying version: $NEW_TAG"
+
+          DEPLOY_OK=true
+
+          if ! IMAGE_TAG="$NEW_TAG" docker compose -f "$COMPOSE" pull api; then
+            DEPLOY_OK=false
+          fi
+
+          if [ "$DEPLOY_OK" = true ]; then
+            if ! IMAGE_TAG="$NEW_TAG" docker compose -f "$COMPOSE" up -d --no-deps api; then
+              DEPLOY_OK=false
+            fi
+          fi
+
+          HEALTHY=false
+
+          if [ "$DEPLOY_OK" = true ]; then
+            for i in $(seq 1 12); do
+              if curl -fsS --max-time 5 \
+                http://127.0.0.1:8000/docs > /dev/null; then
+                HEALTHY=true
+                break
+              fi
+
+              sleep 5
+            done
+          fi
+
+          if [ "$HEALTHY" = true ]; then
+            echo "Backend deployment successful: $NEW_TAG"
+            exit 0
+          fi
+
+          echo "Deployment failed. Starting rollback..."
+
+          IMAGE_TAG="$ROLLBACK_TAG" docker compose \
+            -f "$COMPOSE" up -d --no-deps --force-recreate api
+
+          curl -fsS --retry 12 --retry-delay 5 \
+            --retry-connrefused \
+            http://127.0.0.1:8000/docs > /dev/null
+
+          echo "Rollback completed successfully."
+          exit 1
+          REMOTE
