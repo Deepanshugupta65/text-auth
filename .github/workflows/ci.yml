@@ -100,12 +100,13 @@ jobs:
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
+          username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          fingerprint: 8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ
+          fingerprint: SHA256:8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ
           port: 22
           script: |
             set -e
+
             cd /home/ubuntu
 
             docker compose -f docker-compose.prod.yml pull api
