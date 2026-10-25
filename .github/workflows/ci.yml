@@ -102,7 +102,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          fingerprint: SHA256:8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ
+          fingerprint: 8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ
           port: 22
           script: |
             set -e
