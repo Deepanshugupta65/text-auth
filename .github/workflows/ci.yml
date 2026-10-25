@@ -1,21 +1,26 @@
+
 name: CI
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "frontend/**"
+      - ".github/workflows/frontend-deploy.yml"
 
   pull_request:
     branches:
       - main
 
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
 
     services:
       postgres:
@@ -59,6 +64,19 @@ jobs:
         run: |
           pytest -v
 
+  build-and-push:
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -72,29 +90,30 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/deepanshugupta65/text-auth:latest
+
   deploy:
-    needs: test
+    needs: build-and-push
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy to EC2
+      - name: Deploy backend to EC2
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          fingerprint: SHA256:8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ
+          port: 22
           script: |
+            set -e
             cd /home/ubuntu
+
             docker compose -f docker-compose.prod.yml pull api
+
             docker compose -f docker-compose.prod.yml up -d api
+
             sleep 5
-            curl http://localhost/
 
-          
+            curl -fsS http://127.0.0.1:8000/docs > /dev/null
 
-
-
-
-          
-
-
+            echo "Backend deployment successful"
