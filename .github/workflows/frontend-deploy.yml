@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: frontend-production
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -35,39 +39,83 @@ jobs:
 
       - name: Build React
         working-directory: frontend
-        run: npm run build
         env:
           VITE_API_BASE_URL: https://textauth-demo.duckdns.org
+        run: npm run build
 
       - name: Configure SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
         run: |
+          set -euo pipefail
+
+          test -n "$SSH_PRIVATE_KEY"
+          test -n "$EC2_HOST"
+
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
+
           printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-          ssh-keyscan -H "${{ secrets.EC2_HOST }}" > ~/.ssh/known_hosts
+          ssh-keyscan -t ed25519 "$EC2_HOST" \
+            > ~/.ssh/known_hosts 2>/dev/null
 
-          ssh-keygen -lf ~/.ssh/known_hosts | grep -F \
-            "SHA256:8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ"
+          ACTUAL_FINGERPRINT=$(ssh-keygen -lf ~/.ssh/known_hosts -E sha256 | awk '{print $2}')
+
+          EXPECTED_FINGERPRINT="SHA256:8WchcwloN5dewrXZgc7aoXKoN93Oe+XB6A95/1/R3VQ"
+
+          if [ "$ACTUAL_FINGERPRINT" != "$EXPECTED_FINGERPRINT" ]; then
+            echo "SSH host fingerprint mismatch!"
+            exit 1
+          fi
+
+          chmod 600 ~/.ssh/known_hosts
+          echo "SSH host verified successfully"
+
+      - name: Test SSH connection
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USERNAME }}
+        run: |
+          set -euo pipefail
+
+          test -n "$EC2_USER"
+
+          ssh -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            -i ~/.ssh/id_ed25519 \
+            "$EC2_USER@$EC2_HOST" \
+            "echo 'SSH connection successful' && whoami"
 
       - name: Upload React build to EC2
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_USER: ${{ secrets.EC2_USERNAME }}
         run: |
-          ssh -i ~/.ssh/id_ed25519 "$EC2_USER@$EC2_HOST" \
+          set -euo pipefail
+
+          ssh -o BatchMode=yes \
+            -i ~/.ssh/id_ed25519 \
+            "$EC2_USER@$EC2_HOST" \
             "mkdir -p /home/ubuntu/frontend-deploy"
 
-          scp -i ~/.ssh/id_ed25519 -r frontend/dist/. \
+          scp -o BatchMode=yes \
+            -i ~/.ssh/id_ed25519 \
+            -r frontend/dist/. \
             "$EC2_USER@$EC2_HOST:/home/ubuntu/frontend-deploy/"
 
       - name: Publish frontend
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_USER: ${{ secrets.EC2_USERNAME }}
         run: |
-          ssh -i ~/.ssh/id_ed25519 "$EC2_USER@$EC2_HOST" \
+          set -euo pipefail
+
+          ssh -o BatchMode=yes \
+            -i ~/.ssh/id_ed25519 \
+            "$EC2_USER@$EC2_HOST" \
             "cp -a /home/ubuntu/frontend-deploy/. /var/www/textauth/ && chmod -R a+rX /var/www/textauth"
+
+          echo "Frontend deployment completed successfully"
